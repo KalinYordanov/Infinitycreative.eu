@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заяви проект | Infinity Creative</title>
+    <meta name="description" content="Заявете вашия проект при дигитална агенция Infinity Creative. Попълнете формата и ще се свържем с вас.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/request-project.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>ЗАЯВИ ПРОЕКТ</h1>
+            <p>Попълнете формата и ще се свържем с вас възможно най-скоро</p>
+        </div>
+    </section>
+
+    <!-- Request Form Section -->
+    <section class="request-form-section">
+        <div class="container">
+            <form id="request-project-form" class="request-form">
+                <div class="form-group">
+                    <label for="contact-person">Лице за контакт *</label>
+                    <input type="text" id="contact-person" name="contact-person" placeholder="Вашето име" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Имейл за контакт</label>
+                    <input type="email" id="email" name="email" placeholder="вашият@имейл.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон за контакт *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0888 123 456" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-type">Тип услуга *</label>
+                    <select id="service-type" name="service-type" required>
+                        <option value="" disabled selected>Изберете услуга</option>
+                        <option value="website">Уеб сайт</option>
+                        <option value="sales-funnel">Продажбена фуния</option>
+                        <option value="meta-ads">Meta Ads</option>
+                        <option value="google-ads">Google Ads</option>
+                        <option value="design">Дизайн</option>
+                        <option value="video">Видео обработка</option>
+                        <option value="content">Контент маркетинг</option>
+                        <option value="prepress">Предпечат</option>
+                        <option value="seo">SEO оптимизация</option>
+                        <option value="digital-start">Пакет "Дигитален старт"</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Бюджет за проект</label>
+                    <select id="budget" name="budget">
+                        <option value="" disabled selected>Изберете бюджет</option>
+                        <option value="up-to-500">до 500 лв.</option>
+                        <option value="500-1000">500 - 1000 лв.</option>
+                        <option value="1000-2000">1000 - 2000 лв.</option>
+                        <option value="over-2000">над 2000 лв.</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="competitors">Линк към конкуренти</label>
+                    <input type="url" id="competitors" name="competitors" placeholder="https://example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-description">Детайлно описание на проект</label>
+                    <textarea id="project-description" name="project-description" rows="5" placeholder="Опишете вашия проект, цели и очаквания"></textarea>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="privacy-policy" name="privacy-policy" checked required>
+                    <label for="privacy-policy">Съгласен съм с <a href="#">политиката за поверителност</a> *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Изпрати</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2>Как работим</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Заявка</h3>
+                    <p>Попълвате формата за заявка на проект</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Консултация</h3>
+                    <p>Свързваме се с вас за обсъждане на детайлите</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Оферта</h3>
+                    <p>Изготвяме персонализирана оферта за вашия проект</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Изпълнение</h3>
+                    <p>Реализираме проекта според договорените срокове</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Финализиране</h3>
+                    <p>Предаваме готовия проект и осигуряваме поддръжка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Често задавани въпроси</h2>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Колко време отнема изпълнението на проект?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Времето за изпълнение зависи от сложността на проекта. Обикновено изработката на уеб сайт отнема между 2 и 4 седмици, а маркетинговите кампании могат да бъдат стартирани в рамките на няколко дни.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какви са начините на плащане?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Приемаме плащания по банков път, с карта или в брой. За по-големи проекти предлагаме възможност за разсрочено плащане.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Предлагате ли поддръжка след приключване на проекта?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, предлагаме различни пакети за поддръжка, които включват актуализации, техническа поддръжка и консултации.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Viber Button -->
+    <div id="viber-button"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/viber-button.js"></script>
+    <script src="js/form-validator.js"></script>
+</body>
+</html>

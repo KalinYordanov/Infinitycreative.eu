@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="bg" data-theme="infinitycreative">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Creative - Дигитална агенция</title>
+    <meta name="description" content="Дигитална агенция Infinity Creative - уеб дизайн, продажбени фунии, дигитален маркетинг, графичен дизайн и SEO оптимизация за малкия бизнес.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS и DaisyUI от CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Нова цветова палитра с OKLCH цветове
+                        'primary': 'oklch(84% 0.143 164.978)',
+                        'secondary': 'oklch(81% 0.117 11.638)',
+                        'accent': 'oklch(78% 0.115 274.713)',
+                        'base-100': 'oklch(13% 0.028 261.692)',
+                        'base-200': 'oklch(21% 0.034 264.665)',
+                        'base-300': 'oklch(27% 0.033 256.848)',
+                        'base-content': 'oklch(96% 0.003 264.542)',
+                    }
+                }
+            },
+            daisyui: {
+                themes: [
+                    {
+                        'infinitycreative': {
+                            // Нова цветова палитра с OKLCH цветове
+                            'primary': 'oklch(84% 0.143 164.978)',
+                            'primary-content': 'oklch(26% 0.051 172.552)',
+                            'secondary': 'oklch(81% 0.117 11.638)',
+                            'secondary-content': 'oklch(27% 0.105 12.094)',
+                            'accent': 'oklch(78% 0.115 274.713)',
+                            'accent-content': 'oklch(25% 0.09 281.288)',
+                            'neutral': 'oklch(13% 0.028 261.692)',
+                            'neutral-content': 'oklch(98% 0.002 247.839)',
+                            'base-100': 'oklch(13% 0.028 261.692)',
+                            'base-200': 'oklch(21% 0.034 264.665)',
+                            'base-300': 'oklch(27% 0.033 256.848)',
+                            'base-content': 'oklch(96% 0.003 264.542)',
+                            'info': 'oklch(74% 0.16 232.661)',
+                            'info-content': 'oklch(29% 0.066 243.157)',
+                            'success': 'oklch(79% 0.209 151.711)',
+                            'success-content': 'oklch(26% 0.065 152.934)',
+                            'warning': 'oklch(85% 0.199 91.936)',
+                            'warning-content': 'oklch(28% 0.066 53.813)',
+                            'error': 'oklch(71% 0.194 13.428)',
+                            'error-content': 'oklch(27% 0.105 12.094)',
+                            '--rounded-box': '2rem',
+                            '--rounded-btn': '0.5rem',
+                            '--rounded-badge': '0.25rem',
+                            '--animation-btn': '0.25s',
+                            '--animation-input': '0.2s',
+                            '--btn-focus-scale': '0.95',
+                            '--border-btn': '1px',
+                            '--tab-border': '1px',
+                            '--tab-radius': '0.5rem',
+                        }
+                    }
+                ]
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/viber-button.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/special-offer.css">
+    <link rel="stylesheet" href="css/particles.css">
+
+    <!-- JavaScript файлове -->
+    <script src="js/typing-effect.js" defer></script>
+
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero min-h-screen bg-gradient-to-r from-base-100 to-base-200 text-base-content relative overflow-hidden">
+        <!-- Анимирани частици -->
+        <div id="hero-particles" class="particles-container hero-particles"></div>
+
+        <div class="hero-content flex-col z-10 max-w-7xl mx-auto">
+            <div class="text-center lg:text-left">
+                <div class="badge badge-accent mb-4 p-3 font-bold">INFINITY CREATIVE</div>
+                <h1 class="text-5xl font-bold leading-tight">
+                    Превърнете вашия <span id="typing-text" class="text-gradient bg-gradient-to-r from-accent to-secondary">малък бизнес</span> в дигитален лидер
+                </h1>
+                <p class="py-6 text-xl">
+                    Спрете да губите клиенти заради остарял сайт или липса на онлайн присъствие. Нашите дигитални решения са създадени специално за малкия бизнес и стартиращи компании.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="request-project.html" class="btn btn-accent btn-lg">Заяви проект сега</a>
+                    <a href="#services" class="btn btn-outline btn-lg">Разгледай услугите</a>
+                </div>
+                <div class="mt-6 flex items-center">
+                    <div class="avatar-group -space-x-2">
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="assets/images/testimonials/client1.jpg" />
+                            </div>
+                        </div>
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="assets/images/testimonials/client2.jpg" />
+                            </div>
+                        </div>
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="assets/images/testimonials/client3.jpg" />
+                            </div>
+                        </div>
+                        <div class="avatar placeholder">
+                            <div class="w-12 bg-neutral-focus text-neutral-content">
+                                <span>+99</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <div class="rating rating-sm">
+                            <input type="radio" name="rating-hero" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-hero" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-hero" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-hero" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-hero" class="mask mask-star-2 bg-accent" checked />
+                        </div>
+                        <p class="text-sm">Над 100 доволни клиенти</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem-Solution Section -->
+    <section class="py-16 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto animate-on-scroll from-bottom">
+                <!-- Проблем -->
+                <div class="card bg-base-100 shadow-xl animate-on-scroll from-left" style="transition-delay: 0.2s;">
+                    <div class="card-body">
+                        <div class="text-center mb-6">
+                            <div class="badge badge-error p-3 mb-2">ПРОБЛЕМ</div>
+                            <h2 class="text-3xl font-bold">Защо малкият бизнес се проваля онлайн?</h2>
+                        </div>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="badge badge-error mr-2 mt-1"><i class="fas fa-times"></i></div>
+                                <div>
+                                    <p class="font-bold">Остарели или непрофесионални уебсайтове</p>
+                                    <p class="text-sm opacity-80">Отблъскват потенциалните клиенти и създават лошо първо впечатление.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-error mr-2 mt-1"><i class="fas fa-times"></i></div>
+                                <div>
+                                    <p class="font-bold">Липса на стратегия за дигитален маркетинг</p>
+                                    <p class="text-sm opacity-80">Води до разхищаване на бюджет без измерими резултати.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-error mr-2 mt-1"><i class="fas fa-times"></i></div>
+                                <div>
+                                    <p class="font-bold">Неоптимизирано съдържание</p>
+                                    <p class="text-sm opacity-80">Прави бизнеса невидим за търсачките и потенциалните клиенти.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-error mr-2 mt-1"><i class="fas fa-times"></i></div>
+                                <div>
+                                    <p class="font-bold">Високи цени за дигитални услуги</p>
+                                    <p class="text-sm opacity-80">Правят професионалното онлайн присъствие недостъпно за малкия бизнес.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="alert alert-error mt-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>Резултат: <strong>Загуба на клиенти и приходи</strong>, докато конкурентите ви процъфтяват онлайн.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Решение -->
+                <div class="card bg-base-100 shadow-xl animate-on-scroll from-right" style="transition-delay: 0.4s;">
+                    <div class="card-body">
+                        <div class="text-center mb-6">
+                            <div class="badge badge-success p-3 mb-2">РЕШЕНИЕ</div>
+                            <h2 class="text-3xl font-bold">Как Infinity Creative може да помогне?</h2>
+                        </div>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="badge badge-success mr-2 mt-1"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <p class="font-bold">Професионални уебсайтове на достъпни цени</p>
+                                    <p class="text-sm opacity-80">Създадени специално за нуждите и бюджета на малкия бизнес.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-success mr-2 mt-1"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <p class="font-bold">Целенасочени дигитални маркетинг кампании</p>
+                                    <p class="text-sm opacity-80">Фокусирани върху ROI и привличане на реални клиенти.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-success mr-2 mt-1"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <p class="font-bold">SEO оптимизация за по-висока видимост</p>
+                                    <p class="text-sm opacity-80">Помага на клиентите да ви намерят, когато търсят вашите услуги.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="badge badge-success mr-2 mt-1"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <p class="font-bold">Специален пакет "Дигитален старт"</p>
+                                    <p class="text-sm opacity-80">Всичко необходимо за стартиращ бизнес на една достъпна цена.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="alert alert-success mt-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>Резултат: <strong>Повече клиенти, по-високи приходи</strong> и конкурентно предимство в дигиталното пространство.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 animate-on-scroll from-bottom">
+                <h2 class="text-4xl font-bold">За Infinity Creative</h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Дигитална агенция, фокусирана върху бързо изпълнение и качествени резултати за малкия бизнес</p>
+            </div>
+
+            <div class="card lg:card-side bg-base-200 shadow-xl max-w-5xl mx-auto animate-on-scroll from-bottom" style="transition-delay: 0.3s;">
+                <figure class="lg:w-1/2 animate-on-scroll from-left" style="transition-delay: 0.5s;">
+                    <img src="assets/images/about-team.jpg" alt="Екипът на Infinity Creative" class="h-full w-full object-cover">
+                </figure>
+                <div class="card-body lg:w-1/2 animate-on-scroll from-right" style="transition-delay: 0.7s;">
+                    <h3 class="card-title text-2xl mb-4">Нашата мисия</h3>
+                    <p class="mb-4">Ние сме екип от професионалисти с опит в дигиталния маркетинг, уеб дизайна и разработката на софтуер. Нашата мисия е да помагаме на малкия бизнес да расте чрез ефективно онлайн присъствие.</p>
+                    <p class="mb-6">Разбираме предизвикателствата, пред които са изправени малките и стартиращи компании, затова предлагаме достъпни решения с максимална възвръщаемост на инвестицията.</p>
+
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <div class="badge badge-secondary mr-2"><i class="fas fa-check"></i></div>
+                            <span>Бързо изпълнение на проекти</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="badge badge-secondary mr-2"><i class="fas fa-check"></i></div>
+                            <span>Персонализирани решения</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="badge badge-secondary mr-2"><i class="fas fa-check"></i></div>
+                            <span>Прозрачно ценообразуване</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="badge badge-secondary mr-2"><i class="fas fa-check"></i></div>
+                            <span>Постоянна поддръжка</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Special Offer Section -->
+    <section class="py-20 bg-base-100 relative overflow-hidden">
+        <!-- Анимирани частици -->
+        <div id="special-offer-particles" class="particles-container section-particles"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-8 animate-on-scroll from-bottom">
+                <div class="badge badge-secondary p-3 mb-2">ЕКСКЛУЗИВНО ПРЕДЛОЖЕНИЕ</div>
+                <h2 class="text-4xl font-bold">Стартирайте своя онлайн бизнес <span class="text-gradient bg-gradient-to-r from-secondary to-accent">още днес</span></h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Специално създаден пакет за стартиращи бизнеси, които искат да навлязат в дигиталния свят бързо и на достъпна цена</p>
+            </div>
+
+            <div class="card bg-base-200 shadow-2xl max-w-5xl mx-auto overflow-hidden animate-on-scroll from-bottom" style="transition-delay: 0.3s;">
+                <div class="card-body p-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="p-8 lg:p-12 flex flex-col justify-center animate-on-scroll from-left" style="transition-delay: 0.5s;">
+                            <h3 class="text-3xl font-bold mb-6">Пакет "Дигитален старт"</h3>
+
+                            <div class="mb-6">
+                                <div class="flex items-center mb-3">
+                                    <div class="badge badge-accent mr-2"><i class="fas fa-check"></i></div>
+                                    <span class="font-semibold">Професионален уеб сайт - онлайн визитка</span>
+                                </div>
+                                <p class="text-sm text-base-content ml-8 mb-4">Мобилно оптимизиран сайт с модерен дизайн, контактна форма и интеграция със социални мрежи.</p>
+
+                                <div class="flex items-center mb-3">
+                                    <div class="badge badge-accent mr-2"><i class="fas fa-check"></i></div>
+                                    <span class="font-semibold">Бизнес страница във Facebook</span>
+                                </div>
+                                <p class="text-sm text-base-content ml-8 mb-4">Професионално създадена и оптимизирана Facebook страница с корпоративна идентичност.</p>
+
+                                <div class="flex items-center mb-3">
+                                    <div class="badge badge-accent mr-2"><i class="fas fa-check"></i></div>
+                                    <span class="font-semibold">Базова SEO оптимизация</span>
+                                </div>
+                                <p class="text-sm text-base-content ml-8 mb-4">Оптимизация за търсачки, която помага на клиентите да ви намерят онлайн.</p>
+                            </div>
+
+                            <div class="alert bg-base-200 border-2 border-accent mb-6 p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-accent shrink-0 w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <span class="font-bold text-accent text-lg md:text-xl">БОНУСИ:</span>
+                                    <ul class="text-lg text-base-content ml-2 mt-3 space-y-3">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-success text-base mr-3"></i>
+                                            <span>Създаване на Instagram профил</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-success text-base mr-3"></i>
+                                            <span>Свързване с Facebook страницата</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-check text-success text-base mr-3"></i>
+                                            <span>Подготовка на първите 4 поста</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-actions">
+                                <a href="special-offer.html" class="btn btn-secondary btn-block gap-2 text-lg">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Научи повече за пакета</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-base-200 to-base-300 border-l-4 border-accent p-8 lg:p-12 flex flex-col justify-center animate-on-scroll from-right" style="transition-delay: 0.7s;">
+                            <div class="text-center mb-6">
+                                <p class="text-xl text-base-content mb-2">Стандартна цена: <span class="line-through">400 лв.</span></p>
+                                <div class="flex items-center justify-center">
+                                    <span class="text-5xl font-bold text-accent">249 лв.</span>
+                                    <span class="ml-2 text-xl text-base-content">еднократно</span>
+                                </div>
+                                <p class="mt-2 text-base text-base-content">Спестявате 151 лв. (38%)</p>
+                            </div>
+
+                            <div class="divider text-base-content text-lg">ЗАЩО ДА ИЗБЕРЕТЕ ТОЗИ ПАКЕТ</div>
+
+                            <ul class="space-y-4 mb-6">
+                                <li class="flex items-start">
+                                    <div class="badge badge-accent mr-3 mt-1 p-3"><i class="fas fa-rocket"></i></div>
+                                    <div>
+                                        <p class="font-bold text-base-content text-lg">Бързо стартиране</p>
+                                        <p class="text-base text-base-content">Пълно онлайн присъствие за по-малко от 2 седмици.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="badge badge-accent mr-3 mt-1 p-3"><i class="fas fa-coins"></i></div>
+                                    <div>
+                                        <p class="font-bold text-base-content text-lg">Икономично решение</p>
+                                        <p class="text-base text-base-content">3 услуги на цената на една - спестявате над 150 лв.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="badge badge-accent mr-3 mt-1 p-3"><i class="fas fa-chart-line"></i></div>
+                                    <div>
+                                        <p class="font-bold text-base-content text-lg">Измерими резултати</p>
+                                        <p class="text-base text-base-content">Започнете да привличате клиенти още през първия месец.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="card-actions">
+                                <a href="request-project.html?package=digital-start" class="btn btn-accent btn-block gap-2 text-lg">
+                                    <span>Заяви пакета сега</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-on-scroll from-bottom">
+                <div class="badge badge-primary p-3 mb-2">НАШИТЕ УСЛУГИ</div>
+                <h2 class="text-4xl font-bold">Дигитални решения за всеки аспект на вашия бизнес</h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Предлагаме пълен набор от професионални услуги, които ще трансформират вашето онлайн присъствие и ще увеличат продажбите ви</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 max-w-7xl mx-auto">
+                <!-- Уеб сайтове -->
+                <div class="card bg-base-100 shadow-xl hover:-translate-y-3 transition-all duration-300 group animate-on-scroll from-bottom" style="transition-delay: 0.2s;">
+                    <figure class="relative overflow-hidden h-52">
+                        <img src="assets/images/services/websites-thumb.jpg" alt="Уеб сайтове" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="badge badge-primary">от 150 лв.</div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-laptop text-primary text-xl"></i>
+                            </div>
+                            <h3 class="card-title m-0">Уеб сайтове</h3>
+                        </div>
+                        <p class="mb-4 text-sm">Професионални уеб сайтове, оптимизирани за всички устройства и търсачки, които привличат и задържат клиенти.</p>
+                        <ul class="text-sm space-y-1 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary text-xs mr-2"></i>
+                                <span>Мобилна оптимизация</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary text-xs mr-2"></i>
+                                <span>SEO настройки</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary text-xs mr-2"></i>
+                                <span>Контактни форми</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions mt-auto">
+                            <a href="services/websites.html" class="btn btn-primary btn-sm w-full">Научи повече</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Продажбени фунии -->
+                <div class="card bg-base-100 shadow-xl hover:-translate-y-3 transition-all duration-300 group animate-on-scroll from-bottom" style="transition-delay: 0.4s;">
+                    <figure class="relative overflow-hidden h-52">
+                        <img src="assets/images/services/sales-funnels-thumb.jpg" alt="Продажбени фунии" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="badge badge-secondary">от 249 лв.</div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-filter text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="card-title m-0">Продажбени фунии</h3>
+                        </div>
+                        <p class="mb-4 text-sm">Ефективни продажбени фунии, които превръщат посетителите в клиенти и увеличават вашите приходи.</p>
+                        <ul class="text-sm space-y-1 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-secondary text-xs mr-2"></i>
+                                <span>Оптимизация за конверсии</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-secondary text-xs mr-2"></i>
+                                <span>Ордър форми</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-secondary text-xs mr-2"></i>
+                                <span>Проследяване на резултати</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions mt-auto">
+                            <a href="services/sales-funnels.html" class="btn btn-secondary btn-sm w-full">Научи повече</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta Ads -->
+                <div class="card bg-base-100 shadow-xl hover:-translate-y-3 transition-all duration-300 group animate-on-scroll from-bottom" style="transition-delay: 0.6s;">
+                    <figure class="relative overflow-hidden h-52">
+                        <img src="assets/images/services/meta-ads-thumb.jpg" alt="Meta Ads" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="badge badge-accent">от 120 лв.</div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-3">
+                                <i class="fab fa-facebook text-accent text-xl"></i>
+                            </div>
+                            <h3 class="card-title m-0">Meta Ads</h3>
+                        </div>
+                        <p class="mb-4 text-sm">Таргетирани реклами във Facebook и Instagram, които достигат точно до вашата целева аудитория.</p>
+                        <ul class="text-sm space-y-1 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent text-xs mr-2"></i>
+                                <span>Прецизно таргетиране</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent text-xs mr-2"></i>
+                                <span>Креативни формати</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-accent text-xs mr-2"></i>
+                                <span>Оптимизация на бюджета</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions mt-auto">
+                            <a href="services/meta-ads.html" class="btn btn-accent btn-sm w-full">Научи повече</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Ads -->
+                <div class="card bg-base-100 shadow-xl hover:-translate-y-3 transition-all duration-300 group animate-on-scroll from-bottom" style="transition-delay: 0.8s;">
+                    <figure class="relative overflow-hidden h-52">
+                        <img src="assets/images/services/google-ads-thumb.jpg" alt="Google Ads" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="badge badge-info">от 120 лв.</div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-info/20 flex items-center justify-center mr-3">
+                                <i class="fab fa-google text-info text-xl"></i>
+                            </div>
+                            <h3 class="card-title m-0">Google Ads</h3>
+                        </div>
+                        <p class="mb-4 text-sm">Реклами в Google, които показват вашия бизнес точно когато потенциалните клиенти търсят вашите услуги.</p>
+                        <ul class="text-sm space-y-1 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-info text-xs mr-2"></i>
+                                <span>Търсеща мрежа</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-info text-xs mr-2"></i>
+                                <span>Дисплейна мрежа</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-info text-xs mr-2"></i>
+                                <span>Ремаркетинг</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions mt-auto">
+                            <a href="services/google-ads.html" class="btn btn-info btn-sm w-full">Научи повече</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center animate-on-scroll from-bottom" style="transition-delay: 1s;">
+                <a href="services.html" class="btn btn-lg btn-outline gap-2">
+                    <span>Вижте всички услуги</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-base-100 relative overflow-hidden">
+        <!-- Анимирани частици -->
+        <div id="testimonials-particles" class="particles-container section-particles"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 animate-on-scroll from-bottom">
+                <div class="badge badge-secondary p-3 mb-2">ДОВЕРИЕТО НА КЛИЕНТИТЕ</div>
+                <h2 class="text-4xl font-bold">Какво казват нашите клиенти за нас</h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Не вярвайте само на нашите думи - вижте какво споделят клиентите, които вече са трансформирали своя бизнес с нашите услуги</p>
+            </div>
+
+            <div class="stats shadow mb-12 bg-base-200 text-center max-w-4xl mx-auto animate-on-scroll scale-up" style="transition-delay: 0.3s;">
+                <div class="stat animate-on-scroll from-left" style="transition-delay: 0.5s;">
+                    <div class="stat-figure text-primary">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <div class="stat-title">Доволни клиенти</div>
+                    <div class="stat-value text-primary">100+</div>
+                    <div class="stat-desc">Малки и средни бизнеси</div>
+                </div>
+
+                <div class="stat animate-on-scroll from-bottom" style="transition-delay: 0.7s;">
+                    <div class="stat-figure text-secondary">
+                        <i class="fas fa-star text-3xl"></i>
+                    </div>
+                    <div class="stat-title">Средна оценка</div>
+                    <div class="stat-value text-secondary">4.9/5</div>
+                    <div class="stat-desc">От 87 отзива</div>
+                </div>
+
+                <div class="stat animate-on-scroll from-right" style="transition-delay: 0.9s;">
+                    <div class="stat-figure text-accent">
+                        <i class="fas fa-thumbs-up text-3xl"></i>
+                    </div>
+                    <div class="stat-title">Препоръчват ни</div>
+                    <div class="stat-value text-accent">98%</div>
+                    <div class="stat-desc">От нашите клиенти</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+                <!-- Отзив 1 -->
+                <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 animate-on-scroll from-left" style="transition-delay: 0.3s;">
+                    <div class="card-body p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <div class="avatar">
+                                    <div class="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src="assets/images/testimonials/client1.jpg" alt="Клиент" />
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="font-semibold text-base">Иван Петров</h3>
+                                    <p class="text-xs text-base-content">Собственик, Ресторант "Морски бриз"</p>
+                                </div>
+                            </div>
+                            <div class="badge badge-primary">Уеб сайт</div>
+                        </div>
+
+                        <div class="rating rating-sm mb-4">
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-accent" checked />
+                        </div>
+
+                        <div class="relative">
+                            <i class="fas fa-quote-left text-4xl opacity-10 absolute -top-2 -left-2"></i>
+                            <p class="text-sm mb-4 pl-4">
+                                Екипът на Infinity Creative създаде невероятен уеб сайт за нашия ресторант. Резервациите се увеличиха с <span class="font-bold text-primary">150% само за първия месец</span>! Професионално отношение и бързо изпълнение.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between text-xs text-base-content mt-auto pt-3 border-t border-base-300">
+                            <span>Март 2023</span>
+                            <a href="testimonials.html#ivan-petrov" class="link link-hover">Прочети повече</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзив 2 -->
+                <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 animate-on-scroll from-bottom" style="transition-delay: 0.5s;">
+                    <div class="card-body p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <div class="avatar">
+                                    <div class="w-12 h-12 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                                        <img src="assets/images/testimonials/client2.jpg" alt="Клиент" />
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="font-semibold text-base">Мария Иванова</h3>
+                                    <p class="text-xs text-base-content">Маркетинг мениджър, Fashion Store</p>
+                                </div>
+                            </div>
+                            <div class="badge badge-secondary">Meta Ads</div>
+                        </div>
+
+                        <div class="rating rating-sm mb-4">
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-accent" checked />
+                        </div>
+
+                        <div class="relative">
+                            <i class="fas fa-quote-left text-4xl opacity-10 absolute -top-2 -left-2"></i>
+                            <p class="text-sm mb-4 pl-4">
+                                Благодарение на Meta Ads кампаниите, които Infinity Creative създаде за нас, успяхме да увеличим продажбите си с <span class="font-bold text-secondary">80% за само два месеца</span>. Препоръчвам ги горещо!
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between text-xs text-base-content mt-auto pt-3 border-t border-base-300">
+                            <span>Юни 2023</span>
+                            <a href="testimonials.html#maria-ivanova" class="link link-hover">Прочети повече</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзив 3 -->
+                <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 animate-on-scroll from-right" style="transition-delay: 0.7s;">
+                    <div class="card-body p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <div class="avatar">
+                                    <div class="w-12 h-12 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
+                                        <img src="assets/images/testimonials/client3.jpg" alt="Клиент" />
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="font-semibold text-base">Георги Димитров</h3>
+                                    <p class="text-xs text-base-content">CEO, Tech Solutions Ltd.</p>
+                                </div>
+                            </div>
+                            <div class="badge badge-accent">SEO</div>
+                        </div>
+
+                        <div class="rating rating-sm mb-4">
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-accent" checked />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-accent" checked />
+                        </div>
+
+                        <div class="relative">
+                            <i class="fas fa-quote-left text-4xl opacity-10 absolute -top-2 -left-2"></i>
+                            <p class="text-sm mb-4 pl-4">
+                                Работим с Infinity Creative вече година и сме изключително доволни от резултатите. SEO оптимизацията, която направиха, ни изведе на <span class="font-bold text-accent">първа страница в Google</span> за ключовите ни думи.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between text-xs text-base-content mt-auto pt-3 border-t border-base-300">
+                            <span>Януари 2023</span>
+                            <a href="testimonials.html#georgi-dimitrov" class="link link-hover">Прочети повече</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="badge badge-lg badge-outline">Google Reviews</div>
+                    <div class="badge badge-lg badge-outline">Facebook</div>
+                    <div class="badge badge-lg badge-outline">Trustpilot</div>
+                    <div class="badge badge-lg badge-outline">LinkedIn</div>
+                </div>
+
+                <a href="testimonials.html" class="btn btn-secondary btn-lg gap-2">
+                    <span>Вижте всички отзиви</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-20 bg-base-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-primary p-3 mb-2">НАШИТЕ ПРОЕКТИ</div>
+                <h2 class="text-4xl font-bold">Портфолио от успешни реализации</h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Разгледайте някои от нашите най-успешни проекти, които помогнаха на клиентите ни да постигнат значителен ръст</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="btn btn-sm btn-primary">Всички</button>
+                <button class="btn btn-sm btn-outline">Уеб сайтове</button>
+                <button class="btn btn-sm btn-outline">E-commerce</button>
+                <button class="btn btn-sm btn-outline">Продажбени фунии</button>
+                <button class="btn btn-sm btn-outline">Реклами</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+                <!-- Проект 1 -->
+                <div class="card bg-base-100 shadow-xl group overflow-hidden">
+                    <figure class="relative h-64 overflow-hidden">
+                        <img src="assets/images/portfolio/project1.jpg" alt="Уеб сайт на ресторант" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <h3 class="text-xl font-bold">Ресторант "Морски бриз"</h3>
+                            <p class="text-sm opacity-80">Уеб сайт с онлайн резервации и меню</p>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <div class="badge badge-primary">Уеб дизайн</div>
+                            <div class="badge badge-outline">Разработка</div>
+                            <div class="badge badge-outline">SEO</div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="stat-value text-primary text-lg mr-2">+150%</div>
+                                <span class="text-xs opacity-70">резервации</span>
+                            </div>
+                            <a href="portfolio.html#project1" class="btn btn-sm btn-ghost">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="card bg-base-100 shadow-xl group overflow-hidden">
+                    <figure class="relative h-64 overflow-hidden">
+                        <img src="assets/images/portfolio/project2.jpg" alt="Онлайн магазин" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <h3 class="text-xl font-bold">Fashion Store</h3>
+                            <p class="text-sm opacity-80">Онлайн магазин за дрехи и аксесоари</p>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <div class="badge badge-secondary">E-commerce</div>
+                            <div class="badge badge-outline">Уеб дизайн</div>
+                            <div class="badge badge-outline">Разработка</div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="stat-value text-secondary text-lg mr-2">+200%</div>
+                                <span class="text-xs opacity-70">продажби</span>
+                            </div>
+                            <a href="portfolio.html#project2" class="btn btn-sm btn-ghost">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 3 -->
+                <div class="card bg-base-100 shadow-xl group overflow-hidden">
+                    <figure class="relative h-64 overflow-hidden">
+                        <img src="assets/images/portfolio/project3.jpg" alt="Рекламна кампания" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4">
+                            <h3 class="text-xl font-bold">Meta Ads кампания</h3>
+                            <p class="text-sm opacity-80">Цялостна рекламна кампания във Facebook и Instagram</p>
+                        </div>
+                    </figure>
+                    <div class="card-body p-4">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <div class="badge badge-accent">Meta Ads</div>
+                            <div class="badge badge-outline">Дизайн</div>
+                            <div class="badge badge-outline">Маркетинг</div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="stat-value text-accent text-lg mr-2">4.8x</div>
+                                <span class="text-xs opacity-70">ROAS</span>
+                            </div>
+                            <a href="portfolio.html#project3" class="btn btn-sm btn-ghost">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="portfolio.html" class="btn btn-primary btn-lg gap-2">
+                    <span>Разгледайте всички проекти</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-base-100 relative overflow-hidden">
+        <!-- Анимирани частици -->
+        <div id="why-choose-us-particles" class="particles-container section-particles"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <div class="badge badge-secondary p-3 mb-2">НАШИТЕ ПРЕДИМСТВА</div>
+                <h2 class="text-4xl font-bold">Защо малките бизнеси избират нас</h2>
+                <div class="divider max-w-md mx-auto"></div>
+                <p class="text-lg max-w-3xl mx-auto">Ние не просто предлагаме услуги - ние създаваме решения, които помагат на вашия бизнес да расте и да се развива</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-rocket text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Бързо изпълнение</h3>
+                        </div>
+                        <p class="mb-4">Разбираме колко важно е времето за вашия бизнес. Затова работим бързо и ефективно, за да получите резултати възможно най-скоро.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-primary text-xs mr-2"></i>
+                                    <span>По-бързо стартиране на бизнеса</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-primary text-xs mr-2"></i>
+                                    <span>По-бързо привличане на клиенти</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-coins text-secondary text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Достъпни цени</h3>
+                        </div>
+                        <p class="mb-4">Предлагаме конкурентни цени, специално съобразени с бюджетите на малкия бизнес и стартиращите компании.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-secondary text-xs mr-2"></i>
+                                    <span>По-ниски първоначални разходи</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-secondary text-xs mr-2"></i>
+                                    <span>По-бърза възвръщаемост на инвестицията</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Измерими резултати</h3>
+                        </div>
+                        <p class="mb-4">Фокусираме се върху постигането на конкретни бизнес цели и предоставяме подробни отчети за постигнатите резултати.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent text-xs mr-2"></i>
+                                    <span>Прозрачност на резултатите</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent text-xs mr-2"></i>
+                                    <span>Възможност за оптимизация на стратегията</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-info/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-headset text-info text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Персонална поддръжка</h3>
+                        </div>
+                        <p class="mb-4">Осигуряваме постоянна поддръжка и сме на разположение за въпроси и консултации по всяко време.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-info text-xs mr-2"></i>
+                                    <span>Бързо решаване на проблеми</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-info text-xs mr-2"></i>
+                                    <span>Постоянна техническа поддръжка</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-success/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-success text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Модерни технологии</h3>
+                        </div>
+                        <p class="mb-4">Използваме най-новите технологии и следваме съвременните тенденции в дигиталния маркетинг и уеб дизайна.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-success text-xs mr-2"></i>
+                                    <span>По-добро потребителско изживяване</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-success text-xs mr-2"></i>
+                                    <span>По-висока конверсия и продажби</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-200 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="card-body p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-14 h-14 rounded-full bg-warning/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-handshake text-warning text-2xl"></i>
+                            </div>
+                            <h3 class="card-title text-xl m-0">Дългосрочно партньорство</h3>
+                        </div>
+                        <p class="mb-4">Стремим се да изградим дългосрочни отношения с нашите клиенти, базирани на доверие и взаимно уважение.</p>
+                        <div class="bg-base-300/50 p-3 rounded-lg">
+                            <p class="text-sm font-semibold">Ползи за вас:</p>
+                            <ul class="text-sm space-y-1 mt-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-warning text-xs mr-2"></i>
+                                    <span>Постоянно развитие на вашия бизнес</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-warning text-xs mr-2"></i>
+                                    <span>Стратегическа подкрепа при растежа</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-base-300 relative overflow-hidden">
+        <!-- Анимирани частици -->
+        <div id="cta-particles" class="particles-container section-particles"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-base-200 p-8 rounded-box shadow-lg">
+                        <div class="badge badge-accent p-3 mb-4">СЛЕДВАЩА СТЪПКА</div>
+                        <h2 class="text-4xl font-bold mb-6 leading-tight">Готови ли сте да <span class="text-accent">трансформирате</span> вашия бизнес?</h2>
+                        <p class="text-xl mb-8">Не чакайте повече - всеки ден без силно онлайн присъствие е пропусната възможност за растеж и нови клиенти.</p>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-accent"></i>
+                                </div>
+                                <p class="font-medium">Безплатна първоначална консултация</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-accent"></i>
+                                </div>
+                                <p class="font-medium">Персонализирано предложение според вашите нужди</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-accent"></i>
+                                </div>
+                                <p class="font-medium">Бързо стартиране на проекта</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="request-project.html" class="btn btn-accent btn-lg gap-2">
+                                <i class="fas fa-rocket"></i>
+                                <span>Заяви проект сега</span>
+                            </a>
+                            <a href="contact.html" class="btn btn-outline btn-lg gap-2">
+                                <i class="fas fa-phone"></i>
+                                <span>Свържи се с нас</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-xl border border-base-300">
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl mb-4 text-accent">Бърза връзка с нас</h3>
+                            <p class="mb-6 font-medium">Изберете най-удобния за вас начин да се свържете с нас:</p>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center p-3 bg-base-200 rounded-lg">
+                                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                        <i class="fab fa-viber text-2xl text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Viber</h4>
+                                        <p class="text-sm">Пишете ни директно: <span class="font-semibold">0882 717 158</span></p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center p-3 bg-base-200 rounded-lg">
+                                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-2xl text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Email</h4>
+                                        <p class="text-sm">info@infinitycreative.bg</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center p-3 bg-base-200 rounded-lg">
+                                    <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                        <i class="fas fa-comments text-2xl text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Чат на живо</h4>
+                                        <p class="text-sm">Достъпен в работно време (9:00-18:00)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-actions mt-6">
+                                <a href="contact.html" class="btn btn-block btn-accent">Всички контакти</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Viber Button -->
+    <div id="viber-button"></div>
+
+    <!-- Scripts -->
+    <script src="js/json-loader.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/viber-button.js"></script>
+    <script src="js/before-after-slider.js"></script>
+    <script src="js/theme-config.js"></script>
+</body>
+</html>

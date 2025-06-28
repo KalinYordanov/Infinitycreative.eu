@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | Infinity Creative</title>
+    <meta name="description" content="Свържете се с дигитална агенция Infinity Creative. Контакти за въпроси, запитвания и консултации.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Контакти</h1>
+            <p>Свържете се с нас за въпроси и консултации</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h2>Информация за контакт</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/icons/phone.svg" alt="Телефон">
+                        </div>
+                        <div class="contact-text">
+                            <h3>Телефон</h3>
+                            <p><a href="tel:0882717158">0882 717 158</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/icons/email.svg" alt="Имейл">
+                        </div>
+                        <div class="contact-text">
+                            <h3>Имейл</h3>
+                            <p><a href="mailto:info@infinitycreative.bg">info@infinitycreative.bg</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/icons/location.svg" alt="Адрес">
+                        </div>
+                        <div class="contact-text">
+                            <h3>Адрес</h3>
+                            <p>гр. София, ул. Примерна 123</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <img src="assets/icons/clock.svg" alt="Работно време">
+                        </div>
+                        <div class="contact-text">
+                            <h3>Работно време</h3>
+                            <p>Понеделник - Петък: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>Социални мрежи</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
+                            <a href="#" class="social-icon"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+                            <a href="#" class="social-icon"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Изпратете съобщение</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Име *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Имейл *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Съобщение *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">Съгласен съм с <a href="#">политиката за поверителност</a> *</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Изпрати</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Нашето местоположение</h2>
+            <div class="map-container">
+                <!-- Тук ще бъде вградена Google карта -->
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership">
+        <div class="container">
+            <h2>Партньорства и сътрудничество</h2>
+            <p>Интересувате се от партньорство с нас? Свържете се с нас за повече информация.</p>
+            <a href="#" class="btn btn-secondary">Научете повече</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Viber Button -->
+    <div id="viber-button"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/viber-button.js"></script>
+    <script src="js/form-validator.js"></script>
+    <!-- Google Maps Script -->
+    <script>
+        // Тук ще добавим скрипта за Google Maps
+    </script>
+</body>
+</html>

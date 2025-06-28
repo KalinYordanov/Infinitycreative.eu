@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Infinity Creative</title>
+    <meta name="description" content="Портфолио на дигитална агенция Infinity Creative. Разгледайте нашите успешни проекти в областта на уеб дизайн, дигитален маркетинг и SEO.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header"></header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Портфолио</h1>
+            <p>Разгледайте нашите успешни проекти</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter Section -->
+    <section class="portfolio-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Всички</button>
+                <button class="filter-btn" data-filter="websites">Уеб сайтове</button>
+                <button class="filter-btn" data-filter="funnels">Продажбени фунии</button>
+                <button class="filter-btn" data-filter="marketing">Дигитален маркетинг</button>
+                <button class="filter-btn" data-filter="design">Дизайн</button>
+                <button class="filter-btn" data-filter="video">Видео</button>
+                <button class="filter-btn" data-filter="seo">SEO</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio-grid">
+        <div class="container">
+            <div class="portfolio-items">
+                <!-- Тук ще добавим проектите -->
+                <!-- Пример за проект -->
+                <div class="portfolio-item" data-category="websites">
+                    <div class="portfolio-image">
+                        <img src="assets/images/portfolio/project1.jpg" alt="Име на проекта">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-project">Разгледай</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Име на проекта</h3>
+                        <p>Уеб сайт за компания в сферата на...</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Уеб дизайн</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Край на примера -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Тук ще се зарежда съдържанието на модала -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Искате подобен проект?</h2>
+            <p>Свържете се с нас, за да обсъдим вашите идеи</p>
+            <div class="cta-buttons">
+                <a href="request-project.html" class="btn btn-primary">Заяви проект</a>
+                <a href="contact.html" class="btn btn-secondary">Контакти</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Viber Button -->
+    <div id="viber-button"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/viber-button.js"></script>
+</body>
+</html>
