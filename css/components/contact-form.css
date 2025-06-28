@@ -1,0 +1,234 @@
+/* Стилове за компонента формуляр за контакт */
+
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+.contact-form {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-title {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.75rem;
+}
+
+.form-description {
+    color: var(--dark-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    transition: border-color var(--transition-normal);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    margin-right: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.required {
+    color: var(--accent-color);
+    margin-left: 2px;
+}
+
+.error-message {
+    color: var(--accent-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.submit-btn {
+    min-width: 150px;
+    padding: 0.75rem 1.5rem;
+}
+
+.form-response {
+    margin-top: var(--spacing-lg);
+}
+
+.success-message,
+.error-message#formError {
+    display: none;
+    text-align: center;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+}
+
+.success-message {
+    background-color: rgba(60, 174, 163, 0.1);
+    border: 1px solid rgba(60, 174, 163, 0.3);
+}
+
+.error-message#formError {
+    background-color: rgba(242, 100, 25, 0.1);
+    border: 1px solid rgba(242, 100, 25, 0.3);
+}
+
+.success-icon,
+.error-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.success-icon {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.error-icon {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.success-message h3,
+.error-message#formError h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.success-message p,
+.error-message#formError p {
+    margin-bottom: 0;
+}
+
+/* Варианти на формуляра */
+.contact-form.compact {
+    padding: var(--spacing-md);
+}
+
+.contact-form.compact .form-title {
+    font-size: 1.5rem;
+}
+
+.contact-form.compact .form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-form.compact .form-control {
+    padding: 0.5rem;
+}
+
+.contact-form.light {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.contact-form.bordered {
+    border: 1px solid var(--light-gray);
+    box-shadow: none;
+}
+
+/* Медия заявки */
+@media (max-width: 767px) {
+    .contact-form {
+        padding: var(--spacing-md);
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .form-description {
+        font-size: 0.9rem;
+    }
+    
+    .form-control {
+        padding: 0.6rem;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .contact-form {
+        padding: var(--spacing-sm);
+    }
+    
+    .form-title {
+        font-size: 1.25rem;
+    }
+    
+    .form-group {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .form-control {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}

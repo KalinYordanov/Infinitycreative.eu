@@ -1,0 +1,183 @@
+<!-- Компонент списък с ползи -->
+<div class="benefits-list">
+    <div class="benefits-header">
+        <h2 class="benefits-title"></h2>
+        <p class="benefits-description"></p>
+    </div>
+    
+    <div class="benefits-grid"></div>
+    
+    <div class="benefits-footer">
+        <div class="benefits-cta"></div>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initBenefitsList(element, options) {
+        // Настройване на заглавието
+        const title = element.querySelector('.benefits-title');
+        title.textContent = options.title || 'Ползи';
+        
+        // Настройване на описанието
+        const description = element.querySelector('.benefits-description');
+        if (options.description) {
+            description.textContent = options.description;
+        } else {
+            description.style.display = 'none';
+        }
+        
+        // Настройване на ползите
+        const benefitsGrid = element.querySelector('.benefits-grid');
+        
+        if (options.benefits && options.benefits.length > 0) {
+            options.benefits.forEach(benefit => {
+                const benefitItem = createBenefitItem(benefit);
+                benefitsGrid.appendChild(benefitItem);
+            });
+        }
+        
+        // Настройване на CTA
+        const benefitsCta = element.querySelector('.benefits-cta');
+        
+        if (options.cta) {
+            if (typeof options.cta === 'string') {
+                benefitsCta.innerHTML = options.cta;
+            } else if (options.cta.text && options.cta.url) {
+                const ctaButton = document.createElement('a');
+                ctaButton.href = options.cta.url;
+                ctaButton.className = options.cta.className || 'btn btn-primary';
+                ctaButton.textContent = options.cta.text;
+                benefitsCta.appendChild(ctaButton);
+            }
+        } else {
+            element.querySelector('.benefits-footer').style.display = 'none';
+        }
+        
+        // Настройване на допълнителни класове
+        if (options.className) {
+            element.classList.add(options.className);
+        }
+    }
+    
+    // Функция за създаване на елемент за полза
+    function createBenefitItem(benefit) {
+        const benefitItem = document.createElement('div');
+        benefitItem.className = 'benefit-item';
+        
+        // Добавяне на икона, ако има такава
+        if (benefit.icon) {
+            const iconContainer = document.createElement('div');
+            iconContainer.className = 'benefit-icon';
+            
+            if (benefit.icon.startsWith('<')) {
+                // Ако иконата е HTML (например SVG)
+                iconContainer.innerHTML = benefit.icon;
+            } else {
+                // Ако иконата е URL към изображение
+                const iconImg = document.createElement('img');
+                iconImg.src = benefit.icon;
+                iconImg.alt = benefit.title || 'Полза';
+                iconContainer.appendChild(iconImg);
+            }
+            
+            benefitItem.appendChild(iconContainer);
+        }
+        
+        // Добавяне на заглавие
+        const title = document.createElement('h3');
+        title.className = 'benefit-title';
+        title.textContent = benefit.title || '';
+        benefitItem.appendChild(title);
+        
+        // Добавяне на описание
+        if (benefit.description) {
+            const description = document.createElement('p');
+            description.className = 'benefit-description';
+            description.textContent = benefit.description;
+            benefitItem.appendChild(description);
+        }
+        
+        // Добавяне на преди/след примери, ако има такива
+        if (benefit.beforeAfter) {
+            const beforeAfter = document.createElement('div');
+            beforeAfter.className = 'benefit-before-after';
+            
+            const before = document.createElement('div');
+            before.className = 'benefit-before';
+            before.innerHTML = `<span class="label">Преди:</span> ${benefit.beforeAfter.before}`;
+            
+            const after = document.createElement('div');
+            after.className = 'benefit-after';
+            after.innerHTML = `<span class="label">След:</span> ${benefit.beforeAfter.after}`;
+            
+            beforeAfter.appendChild(before);
+            beforeAfter.appendChild(after);
+            
+            benefitItem.appendChild(beforeAfter);
+        }
+        
+        return benefitItem;
+    }
+    
+    // Функция за създаване на списък с ползи с данни от data атрибути
+    function createBenefitsListFromData(container) {
+        try {
+            // Опит за извличане на данните от data атрибута
+            const options = JSON.parse(container.dataset.options || '{}');
+            
+            // Създаване на списък с ползи
+            const benefitsList = document.createElement('div');
+            benefitsList.className = 'benefits-list';
+            
+            if (options.className) {
+                benefitsList.classList.add(options.className);
+            }
+            
+            // Добавяне на HTML структурата
+            benefitsList.innerHTML = `
+                <div class="benefits-header">
+                    <h2 class="benefits-title">${options.title || 'Ползи'}</h2>
+                    ${options.description ? `<p class="benefits-description">${options.description}</p>` : ''}
+                </div>
+                
+                <div class="benefits-grid">
+                    ${options.benefits && options.benefits.length > 0 ? options.benefits.map(benefit => `
+                    <div class="benefit-item">
+                        ${benefit.icon ? `
+                        <div class="benefit-icon">
+                            ${benefit.icon.startsWith('<') ? benefit.icon : `<img src="${benefit.icon}" alt="${benefit.title || 'Полза'}">`}
+                        </div>
+                        ` : ''}
+                        
+                        <h3 class="benefit-title">${benefit.title || ''}</h3>
+                        ${benefit.description ? `<p class="benefit-description">${benefit.description}</p>` : ''}
+                        
+                        ${benefit.beforeAfter ? `
+                        <div class="benefit-before-after">
+                            <div class="benefit-before"><span class="label">Преди:</span> ${benefit.beforeAfter.before}</div>
+                            <div class="benefit-after"><span class="label">След:</span> ${benefit.beforeAfter.after}</div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    `).join('') : ''}
+                </div>
+                
+                ${options.cta ? `
+                <div class="benefits-footer">
+                    <div class="benefits-cta">
+                        ${typeof options.cta === 'string' ? options.cta : 
+                        (options.cta.text && options.cta.url ? 
+                        `<a href="${options.cta.url}" class="${options.cta.className || 'btn btn-primary'}">${options.cta.text}</a>` : '')}
+                    </div>
+                </div>
+                ` : ''}
+            `;
+            
+            // Заместване на контейнера със списъка с ползи
+            container.parentNode.replaceChild(benefitsList, container);
+        } catch (error) {
+            console.error('Грешка при инициализиране на списък с ползи:', error);
+        }
+    }
+</script>

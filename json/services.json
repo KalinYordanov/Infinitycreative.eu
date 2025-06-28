@@ -1,0 +1,76 @@
+{
+  "services": [
+    {
+      "id": "websites",
+      "title": "Уеб сайтове",
+      "description": "Професионални уеб сайтове, оптимизирани за всички устройства и търсачки.",
+      "image": "assets/images/services/websites-thumb.jpg",
+      "url": "services/websites.html",
+      "features": [
+        "Responsive дизайн",
+        "SEO оптимизация",
+        "Бързо зареждане",
+        "Интуитивен интерфейс",
+        "Съвместимост с всички браузъри"
+      ],
+      "price": {
+        "from": 599,
+        "currency": "лв."
+      }
+    },
+    {
+      "id": "sales-funnels",
+      "title": "Продажбени фунии",
+      "description": "Ефективни продажбени фунии, които превръщат посетителите в клиенти.",
+      "image": "assets/images/services/sales-funnels-thumb.jpg",
+      "url": "services/sales-funnels.html",
+      "features": [
+        "Оптимизирани за конверсии",
+        "A/B тестване",
+        "Автоматизирани имейл последователности",
+        "Проследяване на резултати",
+        "Интеграция с платежни системи"
+      ],
+      "price": {
+        "from": 799,
+        "currency": "лв."
+      }
+    },
+    {
+      "id": "meta-ads",
+      "title": "Meta Ads",
+      "description": "Таргетирани реклами във Facebook и Instagram, които достигат до вашата аудитория.",
+      "image": "assets/images/services/meta-ads-thumb.jpg",
+      "url": "services/meta-ads.html",
+      "features": [
+        "Прецизно таргетиране",
+        "Креативни рекламни формати",
+        "Оптимизация на бюджета",
+        "Детайлни отчети",
+        "Ретаргетиране"
+      ],
+      "price": {
+        "from": 399,
+        "currency": "лв."
+      }
+    },
+    {
+      "id": "google-ads",
+      "title": "Google Ads",
+      "description": "Реклами в Google, които показват вашия бизнес точно когато клиентите търсят.",
+      "image": "assets/images/services/google-ads-thumb.jpg",
+      "url": "services/google-ads.html",
+      "features": [
+        "Ключови думи с висока конверсия",
+        "Оптимизация на качествен резултат",
+        "Разширения на рекламите",
+        "Ремаркетинг",
+        "Проследяване на конверсии"
+      ],
+      "price": {
+        "from": 399,
+        "currency": "лв."
+      }
+    }
+  ]
+}

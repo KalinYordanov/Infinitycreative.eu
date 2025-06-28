@@ -1,0 +1,149 @@
+/* Стилове за компонента превключвател на езика */
+
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    font-size: 0.875rem;
+    z-index: 100;
+}
+
+.language-current {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    color: var(--white);
+    transition: background-color var(--transition-normal);
+}
+
+.language-current:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-flag {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.language-code {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Премахнат код за стрелката */
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 150px;
+    background-color: var(--white);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-md);
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal);
+    overflow: hidden;
+}
+
+.language-switcher.open .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.language-item {
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.language-item:last-child {
+    border-bottom: none;
+}
+
+.language-item.active {
+    background-color: var(--light-gray);
+}
+
+.language-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color var(--transition-normal);
+}
+
+.language-link:hover {
+    background-color: var(--light-gray);
+}
+
+.language-name {
+    margin-left: 0.5rem;
+}
+
+/* Варианти на превключвателя */
+.language-switcher.dark .language-current {
+    color: var(--text-color);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.language-switcher.dark .language-current:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.language-switcher.minimal .language-current {
+    border: none;
+    padding: 0.25rem;
+}
+
+.language-switcher.minimal .language-code {
+    display: none;
+}
+
+.language-switcher.minimal .language-flag {
+    margin-right: 0;
+}
+
+/* Премахнат код за стрелката */
+
+.language-switcher.text-only .language-flag {
+    display: none;
+}
+
+.language-switcher.flag-only .language-code {
+    display: none;
+}
+
+.language-switcher.flag-only .language-flag {
+    margin-right: 0;
+}
+
+/* Медия заявки */
+@media (max-width: 767px) {
+    .language-switcher {
+        font-size: 0.8rem;
+    }
+
+    .language-current {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .language-dropdown {
+        width: 130px;
+    }
+
+    .language-link {
+        padding: 0.6rem 0.8rem;
+    }
+}

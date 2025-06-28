@@ -1,0 +1,87 @@
+{
+  "site": {
+    "name": "Infinity Creative",
+    "description": "Дигитална агенция Infinity Creative - уеб дизайн, продажбени фунии, дигитален маркетинг, графичен дизайн и SEO оптимизация за малкия бизнес.",
+    "url": "https://infinity-creative.com",
+    "logo": {
+      "text": "Infinity Creative",
+      "icon": "∞"
+    },
+    "contact": {
+      "email": "info@infinity-creative.com",
+      "phone": "+359 882 717 158",
+      "viber": "+359 882 717 158",
+      "address": "гр. София, ул. Примерна 123"
+    },
+    "social": {
+      "facebook": "https://facebook.com/infinity-creative",
+      "instagram": "https://instagram.com/infinity-creative",
+      "linkedin": "https://linkedin.com/company/infinity-creative"
+    }
+  },
+  "colors": {
+    "primary": "#0B3954",
+    "secondary": "#3CAEA3",
+    "accent": "#F26419",
+    "light-gray": "#F0F4F8",
+    "dark-gray": "#2D3748"
+  },
+  "fonts": {
+    "primary": "Montserrat, sans-serif",
+    "secondary": "Open Sans, sans-serif"
+  },
+  "menu": [
+    {
+      "title": "Начало",
+      "url": "index.html"
+    },
+    {
+      "title": "Услуги",
+      "url": "services.html",
+      "submenu": [
+        {
+          "title": "Уеб сайтове",
+          "url": "services/websites.html"
+        },
+        {
+          "title": "Продажбени фунии",
+          "url": "services/sales-funnels.html"
+        },
+        {
+          "title": "Meta Ads",
+          "url": "services/meta-ads.html"
+        },
+        {
+          "title": "Google Ads",
+          "url": "services/google-ads.html"
+        }
+      ]
+    },
+    {
+      "title": "Портфолио",
+      "url": "portfolio.html"
+    },
+    {
+      "title": "Отзиви",
+      "url": "testimonials.html"
+    },
+    {
+      "title": "Контакти",
+      "url": "contact.html"
+    }
+  ],
+  "languages": [
+    {
+      "code": "bg",
+      "name": "Български",
+      "flag": "🇧🇬",
+      "active": true
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "flag": "🇬🇧",
+      "active": false
+    }
+  ]
+}

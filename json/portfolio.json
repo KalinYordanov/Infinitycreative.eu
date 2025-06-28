@@ -1,0 +1,67 @@
+{
+  "portfolio": [
+    {
+      "id": "project1",
+      "title": "Уеб сайт на ресторант",
+      "description": "Модерен уеб сайт с онлайн резервации и меню",
+      "image": "assets/images/portfolio/project1.jpg",
+      "tags": ["Уеб дизайн", "Разработка", "SEO"],
+      "url": "portfolio.html#project1",
+      "client": "Ресторант \"Морски бриз\"",
+      "date": "Март 2023",
+      "services": ["Уеб дизайн", "Разработка", "SEO оптимизация", "Онлайн резервации"],
+      "results": [
+        {
+          "value": "+150%",
+          "label": "Повече резервации"
+        },
+        {
+          "value": "+80%",
+          "label": "Повече посещения"
+        }
+      ]
+    },
+    {
+      "id": "project2",
+      "title": "Онлайн магазин",
+      "description": "Електронен магазин с интеграция на платежни системи",
+      "image": "assets/images/portfolio/project2.jpg",
+      "tags": ["E-commerce", "Уеб дизайн", "Разработка"],
+      "url": "portfolio.html#project2",
+      "client": "Fashion Store",
+      "date": "Май 2023",
+      "services": ["E-commerce", "Уеб дизайн", "Разработка", "Платежни системи"],
+      "results": [
+        {
+          "value": "+200%",
+          "label": "Повече продажби"
+        },
+        {
+          "value": "-30%",
+          "label": "По-нисък bounce rate"
+        }
+      ]
+    },
+    {
+      "id": "project3",
+      "title": "Рекламна кампания",
+      "description": "Цялостна рекламна кампания във Facebook и Instagram",
+      "image": "assets/images/portfolio/project3.jpg",
+      "tags": ["Meta Ads", "Дизайн", "Маркетинг"],
+      "url": "portfolio.html#project3",
+      "client": "Tech Solutions Ltd.",
+      "date": "Юни 2023",
+      "services": ["Meta Ads", "Дизайн на реклами", "Таргетиране", "Анализ на резултати"],
+      "results": [
+        {
+          "value": "+120%",
+          "label": "Повече трафик"
+        },
+        {
+          "value": "+65%",
+          "label": "Повече запитвания"
+        }
+      ]
+    }
+  ]
+}

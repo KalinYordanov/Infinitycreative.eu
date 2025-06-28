@@ -1,0 +1,136 @@
+/* Viber Button Styles */
+
+.viber-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #665CAC; /* Официален Viber цвят */
+  box-shadow: 0 4px 10px rgba(102, 92, 172, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Добавяме бяла граница */
+}
+
+.viber-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(102, 92, 172, 0.5);
+  background-color: #7360f2; /* По-светъл цвят при hover */
+}
+
+.viber-button:active {
+  transform: scale(0.95);
+}
+
+.viber-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)); /* Добавяме сянка на иконката */
+}
+
+.viber-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.viber-tooltip {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+}
+
+.viber-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.8);
+}
+
+.viber-button:hover .viber-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.viber-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Pulse Animation */
+@keyframes viber-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(125, 61, 175, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(125, 61, 175, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(125, 61, 175, 0);
+  }
+}
+
+.viber-button.pulse {
+  animation: viber-pulse 2s infinite;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .viber-button {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .viber-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .viber-tooltip {
+    font-size: 12px;
+    padding: 4px 8px;
+    top: -35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .viber-button {
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .viber-icon {
+    width: 22px;
+    height: 22px;
+  }
+}

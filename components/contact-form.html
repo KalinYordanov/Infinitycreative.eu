@@ -1,0 +1,265 @@
+<!-- Компонент формуляр за контакт -->
+<div class="contact-form-container">
+    <form class="contact-form" id="contactForm" action="#" method="POST">
+        <div class="form-header">
+            <h2 class="form-title">Свържете се с нас</h2>
+            <p class="form-description">Попълнете формуляра по-долу и ще се свържем с вас възможно най-скоро.</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Име <span class="required">*</span></label>
+            <input type="text" id="name" name="name" class="form-control" required>
+            <div class="error-message" id="nameError"></div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Имейл <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-control" required>
+            <div class="error-message" id="emailError"></div>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Телефон <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+            <div class="error-message" id="phoneError"></div>
+        </div>
+        
+        <div class="form-group">
+            <label for="subject">Тема</label>
+            <input type="text" id="subject" name="subject" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Съобщение</label>
+            <textarea id="message" name="message" class="form-control" rows="5"></textarea>
+        </div>
+        
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Съгласен съм с <a href="../privacy-policy.html" target="_blank">условията за ползване</a> <span class="required">*</span></label>
+            <div class="error-message" id="consentError"></div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary submit-btn">Изпрати</button>
+        </div>
+        
+        <div class="form-response">
+            <div class="success-message" id="formSuccess">
+                <div class="success-icon">✓</div>
+                <h3>Благодарим за съобщението!</h3>
+                <p>Ще се свържем с вас възможно най-скоро.</p>
+            </div>
+            
+            <div class="error-message" id="formError">
+                <div class="error-icon">✕</div>
+                <h3>Възникна грешка!</h3>
+                <p>Моля, опитайте отново или се свържете с нас директно.</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initContactForm(element, options) {
+        // Настройване на заглавието и описанието
+        const title = element.querySelector('.form-title');
+        const description = element.querySelector('.form-description');
+        
+        if (options.title) {
+            title.textContent = options.title;
+        }
+        
+        if (options.description) {
+            description.textContent = options.description;
+        } else if (options.description === false) {
+            description.style.display = 'none';
+        }
+        
+        // Настройване на действието на формуляра
+        const form = element.querySelector('form');
+        
+        if (options.action) {
+            form.action = options.action;
+        }
+        
+        if (options.method) {
+            form.method = options.method;
+        }
+        
+        // Настройване на текста на бутона
+        const submitBtn = element.querySelector('.submit-btn');
+        
+        if (options.submitText) {
+            submitBtn.textContent = options.submitText;
+        }
+        
+        // Настройване на допълнителни полета
+        if (options.additionalFields && options.additionalFields.length > 0) {
+            const formGroups = element.querySelectorAll('.form-group');
+            const lastFormGroup = formGroups[formGroups.length - 2]; // Преди чекбокса за съгласие
+            
+            options.additionalFields.forEach(field => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group';
+                
+                const label = document.createElement('label');
+                label.setAttribute('for', field.id);
+                label.textContent = field.label;
+                
+                if (field.required) {
+                    const required = document.createElement('span');
+                    required.className = 'required';
+                    required.textContent = '*';
+                    label.appendChild(required);
+                }
+                
+                formGroup.appendChild(label);
+                
+                let input;
+                
+                if (field.type === 'textarea') {
+                    input = document.createElement('textarea');
+                    input.rows = field.rows || 5;
+                } else if (field.type === 'select') {
+                    input = document.createElement('select');
+                    
+                    if (field.options && field.options.length > 0) {
+                        field.options.forEach(option => {
+                            const optionElement = document.createElement('option');
+                            optionElement.value = option.value;
+                            optionElement.textContent = option.text;
+                            input.appendChild(optionElement);
+                        });
+                    }
+                } else {
+                    input = document.createElement('input');
+                    input.type = field.type || 'text';
+                }
+                
+                input.id = field.id;
+                input.name = field.name || field.id;
+                input.className = 'form-control';
+                
+                if (field.placeholder) {
+                    input.placeholder = field.placeholder;
+                }
+                
+                if (field.required) {
+                    input.required = true;
+                }
+                
+                formGroup.appendChild(input);
+                
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.id = `${field.id}Error`;
+                formGroup.appendChild(errorMessage);
+                
+                lastFormGroup.parentNode.insertBefore(formGroup, lastFormGroup);
+            });
+        }
+        
+        // Настройване на валидацията
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm(form)) {
+                submitForm(form, element);
+            }
+        });
+    }
+    
+    // Функция за валидация на формуляра
+    function validateForm(form) {
+        let isValid = true;
+        
+        // Изчистване на предишни грешки
+        const errorMessages = form.querySelectorAll('.error-message');
+        errorMessages.forEach(error => {
+            error.textContent = '';
+        });
+        
+        // Валидация на име
+        const nameInput = form.querySelector('#name');
+        if (nameInput && nameInput.required && !nameInput.value.trim()) {
+            document.getElementById('nameError').textContent = 'Моля, въведете вашето име';
+            isValid = false;
+        }
+        
+        // Валидация на имейл
+        const emailInput = form.querySelector('#email');
+        if (emailInput && emailInput.required) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value.trim()) {
+                document.getElementById('emailError').textContent = 'Моля, въведете вашия имейл';
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('emailError').textContent = 'Моля, въведете валиден имейл адрес';
+                isValid = false;
+            }
+        }
+        
+        // Валидация на телефон
+        const phoneInput = form.querySelector('#phone');
+        if (phoneInput && phoneInput.required) {
+            const phoneRegex = /^[0-9\+\-\s]{7,15}$/;
+            if (!phoneInput.value.trim()) {
+                document.getElementById('phoneError').textContent = 'Моля, въведете вашия телефон';
+                isValid = false;
+            } else if (!phoneRegex.test(phoneInput.value.trim())) {
+                document.getElementById('phoneError').textContent = 'Моля, въведете валиден телефонен номер';
+                isValid = false;
+            }
+        }
+        
+        // Валидация на съгласие
+        const consentInput = form.querySelector('#consent');
+        if (consentInput && consentInput.required && !consentInput.checked) {
+            document.getElementById('consentError').textContent = 'Моля, съгласете се с условията';
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    // Функция за изпращане на формуляра
+    function submitForm(form, element) {
+        // Показване на индикатор за зареждане
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Изпращане...';
+        
+        // Събиране на данните от формуляра
+        const formData = new FormData(form);
+        
+        // Изпращане на данните
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Показване на съобщение за успех
+            element.querySelector('#formSuccess').style.display = 'block';
+            form.reset();
+        })
+        .catch(error => {
+            // Показване на съобщение за грешка
+            element.querySelector('#formError').style.display = 'block';
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            // Възстановяване на бутона
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
+    }
+</script>

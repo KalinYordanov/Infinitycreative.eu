@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Open Sans', sans-serif;
+    color: #2D3748;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl mb-4;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl mb-3;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl mb-2;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply text-secondary hover:text-accent transition-colors duration-normal;
+  }
+
+  /* Настройка на DaisyUI темата */
+  :root {
+    --primary: 11 57 84; /* #0B3954 в RGB */
+    --primary-focus: 7 42 63; /* #072a3f в RGB */
+    --primary-content: 255 255 255; /* #ffffff в RGB */
+
+    --secondary: 60 174 163; /* #3CAEA3 в RGB */
+    --secondary-focus: 45 155 145; /* #2d9b91 в RGB */
+    --secondary-content: 255 255 255; /* #ffffff в RGB */
+
+    --accent: 242 100 25; /* #F26419 в RGB */
+    --accent-focus: 216 85 16; /* #d85510 в RGB */
+    --accent-content: 255 255 255; /* #ffffff в RGB */
+
+    --neutral: 45 55 72; /* #2D3748 в RGB */
+    --neutral-focus: 30 37 50; /* #1e2532 в RGB */
+    --neutral-content: 255 255 255; /* #ffffff в RGB */
+
+    --base-100: 255 255 255; /* #ffffff в RGB */
+    --base-200: 240 244 248; /* #F0F4F8 в RGB */
+    --base-300: 225 231 239; /* #e1e7ef в RGB */
+    --base-content: 45 55 72; /* #2D3748 в RGB */
+  }
+}
+
+@layer components {
+  /* Запазваме съвместимост със съществуващите класове, но използваме DaisyUI */
+  .btn {
+    @apply btn-daisy;
+  }
+
+  .btn-primary {
+    @apply btn-accent;
+  }
+
+  .btn-secondary {
+    @apply btn-secondary;
+  }
+
+  .btn-full-width {
+    @apply w-full whitespace-nowrap text-center text-sm py-2;
+  }
+
+  /* Карти за услуги с DaisyUI */
+  .service-card {
+    @apply card bg-base-100 shadow-xl hover:-translate-y-1 transition-transform duration-normal;
+  }
+
+  .service-image {
+    @apply h-36 overflow-hidden;
+  }
+
+  .service-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  .service-content {
+    @apply card-body p-4 flex-grow flex flex-col;
+  }
+
+  .service-content h3 {
+    @apply card-title text-lg font-semibold mb-2 text-center justify-center;
+  }
+
+  .service-content p {
+    @apply text-sm text-base-content mb-4 flex-grow text-center;
+  }
+
+  .service-footer {
+    @apply card-actions px-2 pb-2 flex justify-center items-center;
+  }
+
+  /* Портфолио елементи с DaisyUI */
+  .portfolio-item {
+    @apply card bg-base-100 shadow-xl overflow-hidden;
+  }
+
+  .portfolio-image {
+    @apply relative h-48 overflow-hidden;
+  }
+
+  .portfolio-image img {
+    @apply w-full h-full object-cover transition-transform duration-normal;
+  }
+
+  .portfolio-overlay {
+    @apply absolute inset-0 bg-primary bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-normal;
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    @apply opacity-100;
+  }
+
+  .portfolio-item:hover .portfolio-image img {
+    @apply scale-110;
+  }
+
+  .view-project {
+    @apply btn btn-sm bg-base-100 text-primary hover:bg-base-200;
+  }
+
+  /* Карти за отзиви с DaisyUI */
+  .testimonial-card {
+    @apply card bg-base-100 shadow-xl p-6;
+  }
+
+  /* Елементи за ползи с DaisyUI */
+  .benefit-item {
+    @apply card bg-base-100 shadow-xl p-6 text-center;
+  }
+
+  .benefit-icon {
+    @apply text-4xl text-secondary mb-4;
+  }
+
+  /* Допълнителни DaisyUI компоненти */
+  .custom-card {
+    @apply card bg-base-100 shadow-xl;
+  }
+
+  .custom-card-body {
+    @apply card-body;
+  }
+
+  .custom-card-title {
+    @apply card-title;
+  }
+
+  .custom-card-actions {
+    @apply card-actions justify-end;
+  }
+
+  .custom-badge {
+    @apply badge;
+  }
+
+  .custom-badge-primary {
+    @apply badge badge-primary;
+  }
+
+  .custom-badge-secondary {
+    @apply badge badge-secondary;
+  }
+
+  .custom-badge-accent {
+    @apply badge badge-accent;
+  }
+
+  .custom-avatar {
+    @apply avatar;
+  }
+
+  .custom-avatar-rounded {
+    @apply avatar placeholder rounded-full;
+  }
+
+  .custom-stats {
+    @apply stats shadow;
+  }
+
+  .custom-stat {
+    @apply stat;
+  }
+
+  .custom-stat-title {
+    @apply stat-title;
+  }
+
+  .custom-stat-value {
+    @apply stat-value;
+  }
+
+  .custom-stat-desc {
+    @apply stat-desc;
+  }
+
+  .custom-divider {
+    @apply divider;
+  }
+
+  .custom-alert {
+    @apply alert;
+  }
+
+  .custom-alert-info {
+    @apply alert alert-info;
+  }
+
+  .custom-alert-success {
+    @apply alert alert-success;
+  }
+
+  .custom-alert-warning {
+    @apply alert alert-warning;
+  }
+
+  .custom-alert-error {
+    @apply alert alert-error;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent;
+  }
+
+  .bg-blur {
+    @apply backdrop-blur-md bg-white bg-opacity-70;
+  }
+}

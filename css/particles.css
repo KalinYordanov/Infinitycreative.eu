@@ -1,0 +1,43 @@
+/* Particles CSS */
+
+/* Основен контейнер за частиците */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Специфични стилове за частиците в Hero секцията */
+.hero-particles {
+    opacity: 0.8;
+}
+
+/* Специфични стилове за частиците в другите секции */
+.section-particles {
+    opacity: 0.5;
+}
+
+/* Адаптивни стилове за мобилни устройства */
+@media (max-width: 767px) {
+    .particles-container {
+        opacity: 0.4; /* По-ниска непрозрачност на мобилни устройства */
+    }
+}
+
+/* Анимация за появяване на частиците */
+@keyframes fadeInParticles {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.particles-container {
+    animation: fadeInParticles 1.5s ease-in-out forwards;
+}

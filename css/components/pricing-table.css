@@ -1,0 +1,208 @@
+/* Стилове за компонента таблица с цени */
+
+.pricing-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-table-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-table-title {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+}
+
+.pricing-table-description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--dark-gray);
+}
+
+.pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-plan {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+}
+
+.pricing-plan:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-plan.featured {
+    border: 2px solid var(--accent-color);
+    transform: scale(1.05);
+}
+
+.pricing-plan.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-bottom-left-radius: var(--border-radius-sm);
+}
+
+.pricing-header {
+    padding: var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+
+.pricing-header h3 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.price-type {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.pricing-features {
+    padding: var(--spacing-lg);
+}
+
+.pricing-features ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: 0;
+    list-style: none;
+}
+
+.pricing-features li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.pricing-subtext {
+    padding: 0 var(--spacing-lg) var(--spacing-md);
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+.pricing-footer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    text-align: center;
+}
+
+.pricing-table-footer {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.pricing-note {
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-cta {
+    margin-top: var(--spacing-md);
+}
+
+/* Варианти на таблицата */
+.pricing-table.compact .pricing-plans {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.pricing-table.compact .pricing-header {
+    padding: var(--spacing-md);
+}
+
+.pricing-table.compact .price {
+    font-size: 1.75rem;
+}
+
+.pricing-table.compact .pricing-features {
+    padding: var(--spacing-md);
+}
+
+.pricing-table.compact .pricing-footer {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+/* Медия заявки */
+@media (max-width: 991px) {
+    .pricing-plans {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .pricing-plan.featured {
+        transform: scale(1);
+    }
+    
+    .pricing-plan.featured:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 767px) {
+    .pricing-table-title {
+        font-size: 1.75rem;
+    }
+    
+    .pricing-plans {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .price {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing-table-title {
+        font-size: 1.5rem;
+    }
+    
+    .pricing-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .price {
+        font-size: 1.5rem;
+    }
+}

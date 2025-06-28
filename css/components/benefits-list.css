@@ -1,0 +1,200 @@
+/* Стилове за компонента списък с ползи */
+
+.benefits-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.benefits-title {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+}
+
+.benefits-description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--dark-gray);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.benefit-item {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-icon img,
+.benefit-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.benefit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.benefit-description {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-before-after {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.benefit-before,
+.benefit-after {
+    margin-bottom: var(--spacing-xs);
+}
+
+.benefit-after {
+    margin-bottom: 0;
+}
+
+.benefit-before .label,
+.benefit-after .label {
+    font-weight: 700;
+    margin-right: var(--spacing-xs);
+}
+
+.benefit-before .label {
+    color: var(--dark-gray);
+}
+
+.benefit-after .label {
+    color: var(--secondary-color);
+}
+
+.benefits-footer {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.benefits-cta {
+    margin-top: var(--spacing-md);
+}
+
+/* Варианти на списъка */
+.benefits-list.compact .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.benefits-list.compact .benefit-item {
+    padding: var(--spacing-sm);
+}
+
+.benefits-list.compact .benefit-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.benefits-list.compact .benefit-title {
+    font-size: 1.1rem;
+}
+
+.benefits-list.horizontal .benefits-grid {
+    grid-template-columns: 1fr;
+}
+
+.benefits-list.horizontal .benefit-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.benefits-list.horizontal .benefit-icon {
+    margin-right: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.benefits-list.horizontal .benefit-content {
+    flex-grow: 1;
+}
+
+/* Медия заявки */
+@media (max-width: 991px) {
+    .benefits-title {
+        font-size: 1.75rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .benefits-title {
+        font-size: 1.5rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .benefit-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .benefits-title {
+        font-size: 1.25rem;
+    }
+    
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .benefit-title {
+        font-size: 1.1rem;
+    }
+    
+    .benefits-list.horizontal .benefit-item {
+        flex-direction: column;
+    }
+    
+    .benefits-list.horizontal .benefit-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+}

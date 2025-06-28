@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTM Builder | Административен панел | Infinity Creative</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Infinity Creative Logo" class="logo">
+                <h1>Админ панел</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <span class="icon">📊</span>
+                            <span class="text">Табло</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="page-editor.html">
+                            <span class="icon">📝</span>
+                            <span class="text">Редактор на страници</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="portfolio-manager.html">
+                            <span class="icon">🖼️</span>
+                            <span class="text">Портфолио</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="testimonial-manager.html">
+                            <span class="icon">💬</span>
+                            <span class="text">Отзиви</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="inquiry-manager.html">
+                            <span class="icon">📨</span>
+                            <span class="text">Запитвания</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="statistics.html">
+                            <span class="icon">📈</span>
+                            <span class="text">Статистика</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="utm-builder.html">
+                            <span class="icon">🔗</span>
+                            <span class="text">UTM Builder</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="../index.html" class="btn btn-outline">
+                    <span class="icon">🏠</span>
+                    <span class="text">Към сайта</span>
+                </a>
+                <a href="#" class="btn btn-logout">
+                    <span class="icon">🚪</span>
+                    <span class="text">Изход</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h2>UTM Builder</h2>
+                    <p>Създаване на проследяващи линкове</p>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="user-info">
+                        <span class="user-name">Администратор</span>
+                        <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-body">
+                <!-- UTM Form -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Създай UTM линк</h3>
+                    </div>
+                    
+                    <form id="utm-form" class="utm-form">
+                        <div class="form-group">
+                            <label for="utm-url">URL *</label>
+                            <input type="url" id="utm-url" name="utm-url" required placeholder="https://infinitycreative.bg">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="utm-source">Източник (utm_source) *</label>
+                                <input type="text" id="utm-source" name="utm-source" required placeholder="facebook">
+                                <div class="form-hint">Откъде идва трафикът? (facebook, google, newsletter)</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="utm-medium">Медия (utm_medium) *</label>
+                                <input type="text" id="utm-medium" name="utm-medium" required placeholder="cpc">
+                                <div class="form-hint">Какъв тип маркетинг? (cpc, email, social)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="utm-campaign">Кампания (utm_campaign) *</label>
+                            <input type="text" id="utm-campaign" name="utm-campaign" required placeholder="summer_sale">
+                            <div class="form-hint">Име на кампанията (summer_sale, product_launch)</div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="utm-term">Ключова дума (utm_term)</label>
+                                <input type="text" id="utm-term" name="utm-term" placeholder="web_design">
+                                <div class="form-hint">Платени ключови думи (незадължително)</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="utm-content">Съдържание (utm_content)</label>
+                                <input type="text" id="utm-content" name="utm-content" placeholder="banner_blue">
+                                <div class="form-hint">За A/B тестване или различни банери (незадължително)</div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Генерирай UTM линк</button>
+                    </form>
+                </div>
+                
+                <!-- UTM Result -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>Резултат</h3>
+                    </div>
+                    
+                    <div id="utm-result" class="utm-result">
+                        <div class="empty-state">
+                            Попълнете формата, за да генерирате UTM линк
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UTM History -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3>История</h3>
+                    </div>
+                    
+                    <div id="utm-history" class="utm-history">
+                        <!-- History items will be added here -->
+                        <div class="empty-state">
+                            Няма запазени UTM линкове
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>

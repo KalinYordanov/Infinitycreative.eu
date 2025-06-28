@@ -1,0 +1,34 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Иван Петров",
+      "position": "Собственик, Ресторант \"Морски бриз\"",
+      "image": "assets/images/testimonials/client1.jpg",
+      "rating": 5,
+      "text": "Екипът на Infinity Creative създаде невероятен уеб сайт за нашия ресторант. Резервациите се увеличиха с 150% само за първия месец! Професионално отношение и бързо изпълнение.",
+      "project": "Уеб сайт с онлайн резервации",
+      "date": "Март 2023"
+    },
+    {
+      "id": 2,
+      "name": "Мария Иванова",
+      "position": "Маркетинг мениджър, Fashion Store",
+      "image": "assets/images/testimonials/client2.jpg",
+      "rating": 5,
+      "text": "Благодарение на Meta Ads кампаниите, които Infinity Creative създаде за нас, успяхме да увеличим продажбите си с 80% за само два месеца. Препоръчвам ги горещо!",
+      "project": "Meta Ads кампании",
+      "date": "Юни 2023"
+    },
+    {
+      "id": 3,
+      "name": "Георги Димитров",
+      "position": "CEO, Tech Solutions Ltd.",
+      "image": "assets/images/testimonials/client3.jpg",
+      "rating": 4.5,
+      "text": "Работим с Infinity Creative вече година и сме изключително доволни от резултатите. SEO оптимизацията, която направиха, ни изведе на първа страница в Google за ключовите ни думи.",
+      "project": "SEO оптимизация",
+      "date": "Януари 2023"
+    }
+  ]
+}

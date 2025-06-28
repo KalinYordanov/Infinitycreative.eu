@@ -1,0 +1,336 @@
+<!-- Компонент ценова карта -->
+<div class="pricing-card">
+    <div class="pricing-badge"></div>
+    
+    <div class="pricing-header">
+        <h3 class="pricing-title"></h3>
+        <div class="pricing-price-container">
+            <div class="pricing-price"></div>
+            <div class="pricing-period"></div>
+        </div>
+    </div>
+    
+    <div class="pricing-features">
+        <ul class="features-list"></ul>
+    </div>
+    
+    <div class="pricing-extras">
+        <div class="extras-title">Допълнителни услуги</div>
+        <div class="extras-list"></div>
+    </div>
+    
+    <div class="pricing-total">
+        <div class="total-label">Общо:</div>
+        <div class="total-price"></div>
+    </div>
+    
+    <div class="pricing-footer">
+        <a href="#" class="btn btn-primary pricing-cta"></a>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initPricingCard(element, options) {
+        // Настройване на бадж, ако има такъв
+        const badge = element.querySelector('.pricing-badge');
+        if (options.badge) {
+            badge.textContent = options.badge;
+            badge.style.display = 'block';
+        } else {
+            badge.style.display = 'none';
+        }
+        
+        // Настройване на заглавието
+        const title = element.querySelector('.pricing-title');
+        title.textContent = options.title || '';
+        
+        // Настройване на цената
+        const price = element.querySelector('.pricing-price');
+        const period = element.querySelector('.pricing-period');
+        
+        price.textContent = options.price || '';
+        period.textContent = options.period || '';
+        
+        // Настройване на характеристиките
+        const featuresList = element.querySelector('.features-list');
+        
+        if (options.features && options.features.length > 0) {
+            options.features.forEach(feature => {
+                const featureItem = document.createElement('li');
+                featureItem.innerHTML = feature;
+                featuresList.appendChild(featureItem);
+            });
+        }
+        
+        // Настройване на допълнителните услуги
+        const extrasList = element.querySelector('.extras-list');
+        const extrasTitle = element.querySelector('.extras-title');
+        
+        if (options.extras && options.extras.length > 0) {
+            options.extras.forEach(extra => {
+                const extraItem = createExtraItem(extra);
+                extrasList.appendChild(extraItem);
+            });
+        } else {
+            element.querySelector('.pricing-extras').style.display = 'none';
+        }
+        
+        // Настройване на общата цена
+        const totalPrice = element.querySelector('.total-price');
+        totalPrice.textContent = options.price || '';
+        
+        // Настройване на CTA бутона
+        const ctaButton = element.querySelector('.pricing-cta');
+        
+        if (options.cta) {
+            ctaButton.textContent = options.cta.text || 'Заяви';
+            ctaButton.href = options.cta.url || '#';
+            
+            if (options.cta.className) {
+                ctaButton.className = options.cta.className;
+            }
+        }
+        
+        // Настройване на допълнителни класове
+        if (options.className) {
+            element.classList.add(options.className);
+        }
+        
+        // Инициализиране на калкулатора за цена
+        initPriceCalculator(element, options);
+    }
+    
+    // Функция за създаване на елемент за допълнителна услуга
+    function createExtraItem(extra) {
+        const extraItem = document.createElement('div');
+        extraItem.className = 'extra-item';
+        
+        if (extra.type === 'checkbox') {
+            // Създаване на чекбокс
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.className = 'checkbox-container';
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = extra.id || `extra-${Math.random().toString(36).substring(2, 9)}`;
+            checkbox.name = extra.name || checkbox.id;
+            checkbox.dataset.price = extra.price || 0;
+            
+            if (extra.checked) {
+                checkbox.checked = true;
+            }
+            
+            const label = document.createElement('label');
+            label.setAttribute('for', checkbox.id);
+            label.innerHTML = extra.label || '';
+            
+            if (extra.tooltip) {
+                const tooltip = document.createElement('span');
+                tooltip.className = 'tooltip-icon';
+                tooltip.textContent = '?';
+                tooltip.title = extra.tooltip;
+                label.appendChild(tooltip);
+            }
+            
+            checkboxContainer.appendChild(checkbox);
+            checkboxContainer.appendChild(label);
+            
+            extraItem.appendChild(checkboxContainer);
+        } else if (extra.type === 'select') {
+            // Създаване на падащо меню
+            const selectContainer = document.createElement('div');
+            selectContainer.className = 'select-container';
+            
+            const label = document.createElement('label');
+            label.textContent = extra.label || '';
+            
+            const select = document.createElement('select');
+            select.id = extra.id || `extra-${Math.random().toString(36).substring(2, 9)}`;
+            select.name = extra.name || select.id;
+            select.className = 'form-control';
+            
+            if (extra.options && extra.options.length > 0) {
+                extra.options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.textContent = option.text;
+                    optionElement.dataset.price = option.price || 0;
+                    select.appendChild(optionElement);
+                });
+            }
+            
+            selectContainer.appendChild(label);
+            selectContainer.appendChild(select);
+            
+            if (extra.note) {
+                const note = document.createElement('div');
+                note.className = 'extra-note';
+                note.textContent = extra.note;
+                selectContainer.appendChild(note);
+            }
+            
+            extraItem.appendChild(selectContainer);
+        }
+        
+        return extraItem;
+    }
+    
+    // Функция за инициализиране на калкулатора за цена
+    function initPriceCalculator(element, options) {
+        // Базова цена
+        const basePrice = parseFloat(options.price) || 0;
+        
+        // Елементи за изчисляване на цената
+        const checkboxes = element.querySelectorAll('.extra-item input[type="checkbox"]');
+        const selects = element.querySelectorAll('.extra-item select');
+        const totalPriceElement = element.querySelector('.total-price');
+        
+        // Функция за изчисляване на общата цена
+        function calculateTotalPrice() {
+            let totalPrice = basePrice;
+            
+            // Добавяне на цените от чекбоксовете
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    totalPrice += parseFloat(checkbox.dataset.price) || 0;
+                }
+            });
+            
+            // Добавяне на цените от падащите менюта
+            selects.forEach(select => {
+                const selectedOption = select.options[select.selectedIndex];
+                if (selectedOption && selectedOption.dataset.price) {
+                    totalPrice += parseFloat(selectedOption.dataset.price) || 0;
+                }
+            });
+            
+            // Форматиране на цената
+            const formattedPrice = formatPrice(totalPrice, options.currency);
+            
+            // Актуализиране на елемента с общата цена
+            totalPriceElement.textContent = formattedPrice;
+        }
+        
+        // Добавяне на слушатели за събития
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', calculateTotalPrice);
+        });
+        
+        selects.forEach(select => {
+            select.addEventListener('change', calculateTotalPrice);
+        });
+        
+        // Първоначално изчисляване на цената
+        calculateTotalPrice();
+    }
+    
+    // Функция за форматиране на цена
+    function formatPrice(price, currency) {
+        if (isNaN(price)) {
+            return '';
+        }
+        
+        // Закръгляне до 2 знака след десетичната запетая
+        price = Math.round(price * 100) / 100;
+        
+        // Форматиране на цената според валутата
+        if (currency === 'USD') {
+            return `$${price}`;
+        } else if (currency === 'EUR') {
+            return `€${price}`;
+        } else {
+            return `${price} лв.`;
+        }
+    }
+    
+    // Функция за създаване на ценова карта с данни от data атрибути
+    function createPricingCardFromData(container) {
+        try {
+            // Опит за извличане на данните от data атрибута
+            const options = JSON.parse(container.dataset.options || '{}');
+            
+            // Създаване на ценова карта
+            const pricingCard = document.createElement('div');
+            pricingCard.className = 'pricing-card';
+            
+            if (options.className) {
+                pricingCard.classList.add(options.className);
+            }
+            
+            // Добавяне на HTML структурата
+            pricingCard.innerHTML = `
+                ${options.badge ? `<div class="pricing-badge">${options.badge}</div>` : ''}
+                
+                <div class="pricing-header">
+                    <h3 class="pricing-title">${options.title || ''}</h3>
+                    <div class="pricing-price-container">
+                        <div class="pricing-price">${options.price || ''}</div>
+                        <div class="pricing-period">${options.period || ''}</div>
+                    </div>
+                </div>
+                
+                <div class="pricing-features">
+                    <ul class="features-list">
+                        ${options.features && options.features.length > 0 ? options.features.map(feature => `<li>${feature}</li>`).join('') : ''}
+                    </ul>
+                </div>
+                
+                ${options.extras && options.extras.length > 0 ? `
+                <div class="pricing-extras">
+                    <div class="extras-title">Допълнителни услуги</div>
+                    <div class="extras-list">
+                        ${options.extras.map(extra => {
+                            if (extra.type === 'checkbox') {
+                                return `
+                                <div class="extra-item">
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="${extra.id || `extra-${Math.random().toString(36).substring(2, 9)}`}" name="${extra.name || extra.id}" data-price="${extra.price || 0}" ${extra.checked ? 'checked' : ''}>
+                                        <label for="${extra.id || `extra-${Math.random().toString(36).substring(2, 9)}`}">
+                                            ${extra.label || ''}
+                                            ${extra.tooltip ? `<span class="tooltip-icon" title="${extra.tooltip}">?</span>` : ''}
+                                        </label>
+                                    </div>
+                                </div>
+                                `;
+                            } else if (extra.type === 'select') {
+                                return `
+                                <div class="extra-item">
+                                    <div class="select-container">
+                                        <label>${extra.label || ''}</label>
+                                        <select id="${extra.id || `extra-${Math.random().toString(36).substring(2, 9)}`}" name="${extra.name || extra.id}" class="form-control">
+                                            ${extra.options && extra.options.length > 0 ? extra.options.map(option => `
+                                            <option value="${option.value}" data-price="${option.price || 0}">${option.text}</option>
+                                            `).join('') : ''}
+                                        </select>
+                                        ${extra.note ? `<div class="extra-note">${extra.note}</div>` : ''}
+                                    </div>
+                                </div>
+                                `;
+                            }
+                            return '';
+                        }).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div class="pricing-total">
+                    <div class="total-label">Общо:</div>
+                    <div class="total-price">${options.price || ''}</div>
+                </div>
+                
+                <div class="pricing-footer">
+                    <a href="${options.cta && options.cta.url ? options.cta.url : '#'}" class="${options.cta && options.cta.className ? options.cta.className : 'btn btn-primary'}">${options.cta && options.cta.text ? options.cta.text : 'Заяви'}</a>
+                </div>
+            `;
+            
+            // Заместване на контейнера с ценовата карта
+            container.parentNode.replaceChild(pricingCard, container);
+            
+            // Инициализиране на калкулатора за цена
+            initPriceCalculator(pricingCard, options);
+        } catch (error) {
+            console.error('Грешка при инициализиране на ценова карта:', error);
+        }
+    }
+</script>

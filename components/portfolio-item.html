@@ -1,0 +1,193 @@
+<!-- Компонент елемент от портфолио -->
+<div class="portfolio-item">
+    <div class="portfolio-image">
+        <img src="" alt="" class="portfolio-img">
+    </div>
+    
+    <div class="portfolio-content">
+        <h3 class="portfolio-title"></h3>
+        
+        <div class="portfolio-meta">
+            <div class="portfolio-date"></div>
+            <div class="portfolio-link">
+                <a href="#" target="_blank" class="website-link"></a>
+            </div>
+        </div>
+        
+        <div class="portfolio-description"></div>
+        
+        <div class="portfolio-services">
+            <div class="services-label">Използвани услуги:</div>
+            <div class="services-badges"></div>
+        </div>
+        
+        <div class="portfolio-results">
+            <div class="results-label">Постигнати резултати:</div>
+            <div class="results-list"></div>
+        </div>
+        
+        <div class="portfolio-actions">
+            <a href="#" class="btn btn-primary portfolio-cta"></a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initPortfolioItem(element, options) {
+        // Настройване на изображението
+        const portfolioImg = element.querySelector('.portfolio-img');
+        if (options.image) {
+            portfolioImg.src = options.image.src || '';
+            portfolioImg.alt = options.image.alt || options.title || 'Проект';
+        } else {
+            element.querySelector('.portfolio-image').style.display = 'none';
+        }
+        
+        // Настройване на заглавието
+        const title = element.querySelector('.portfolio-title');
+        title.textContent = options.title || '';
+        
+        // Настройване на метаданните
+        const date = element.querySelector('.portfolio-date');
+        if (options.date) {
+            date.textContent = options.date;
+        } else {
+            date.style.display = 'none';
+        }
+        
+        const websiteLink = element.querySelector('.website-link');
+        if (options.websiteUrl) {
+            websiteLink.href = options.websiteUrl;
+            websiteLink.textContent = options.websiteLinkText || 'Посети сайта';
+        } else {
+            element.querySelector('.portfolio-link').style.display = 'none';
+        }
+        
+        // Настройване на описанието
+        const description = element.querySelector('.portfolio-description');
+        if (options.description) {
+            description.innerHTML = options.description;
+        } else {
+            description.style.display = 'none';
+        }
+        
+        // Настройване на услугите
+        const servicesBadges = element.querySelector('.services-badges');
+        if (options.services && options.services.length > 0) {
+            options.services.forEach(service => {
+                const badge = document.createElement('span');
+                badge.className = 'service-badge';
+                badge.textContent = service;
+                servicesBadges.appendChild(badge);
+            });
+        } else {
+            element.querySelector('.portfolio-services').style.display = 'none';
+        }
+        
+        // Настройване на резултатите
+        const resultsList = element.querySelector('.results-list');
+        if (options.results && options.results.length > 0) {
+            const resultItems = document.createElement('ul');
+            
+            options.results.forEach(result => {
+                const resultItem = document.createElement('li');
+                resultItem.textContent = result;
+                resultItems.appendChild(resultItem);
+            });
+            
+            resultsList.appendChild(resultItems);
+        } else {
+            element.querySelector('.portfolio-results').style.display = 'none';
+        }
+        
+        // Настройване на CTA бутона
+        const ctaButton = element.querySelector('.portfolio-cta');
+        if (options.cta) {
+            ctaButton.textContent = options.cta.text || 'Подобен проект';
+            ctaButton.href = options.cta.url || '../request-project.html';
+            
+            if (options.cta.className) {
+                ctaButton.className = options.cta.className;
+            }
+        } else {
+            ctaButton.style.display = 'none';
+        }
+        
+        // Настройване на допълнителни класове
+        if (options.className) {
+            element.classList.add(options.className);
+        }
+    }
+    
+    // Функция за създаване на елемент от портфолио с данни от data атрибути
+    function createPortfolioItemFromData(container) {
+        try {
+            // Опит за извличане на данните от data атрибута
+            const options = JSON.parse(container.dataset.options || '{}');
+            
+            // Създаване на елемент от портфолио
+            const portfolioItem = document.createElement('div');
+            portfolioItem.className = 'portfolio-item';
+            
+            if (options.className) {
+                portfolioItem.classList.add(options.className);
+            }
+            
+            // Добавяне на HTML структурата
+            portfolioItem.innerHTML = `
+                ${options.image ? `
+                <div class="portfolio-image">
+                    <img src="${options.image.src || ''}" alt="${options.image.alt || options.title || 'Проект'}" class="portfolio-img">
+                </div>
+                ` : ''}
+                
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">${options.title || ''}</h3>
+                    
+                    <div class="portfolio-meta">
+                        ${options.date ? `<div class="portfolio-date">${options.date}</div>` : ''}
+                        ${options.websiteUrl ? `
+                        <div class="portfolio-link">
+                            <a href="${options.websiteUrl}" target="_blank" class="website-link">${options.websiteLinkText || 'Посети сайта'}</a>
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    ${options.description ? `<div class="portfolio-description">${options.description}</div>` : ''}
+                    
+                    ${options.services && options.services.length > 0 ? `
+                    <div class="portfolio-services">
+                        <div class="services-label">Използвани услуги:</div>
+                        <div class="services-badges">
+                            ${options.services.map(service => `<span class="service-badge">${service}</span>`).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    ${options.results && options.results.length > 0 ? `
+                    <div class="portfolio-results">
+                        <div class="results-label">Постигнати резултати:</div>
+                        <div class="results-list">
+                            <ul>
+                                ${options.results.map(result => `<li>${result}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    ${options.cta ? `
+                    <div class="portfolio-actions">
+                        <a href="${options.cta.url || '../request-project.html'}" class="${options.cta.className || 'btn btn-primary'}">${options.cta.text || 'Подобен проект'}</a>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            // Заместване на контейнера с елемента от портфолио
+            container.parentNode.replaceChild(portfolioItem, container);
+        } catch (error) {
+            console.error('Грешка при инициализиране на елемент от портфолио:', error);
+        }
+    }
+</script>

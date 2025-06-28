@@ -1,0 +1,188 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "digitalStart": "Digital Start",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "requestProject": "Request Project"
+  },
+  "services": {
+    "websites": "Websites",
+    "salesFunnels": "Sales Funnels",
+    "metaAds": "Meta Ads",
+    "googleAds": "Google Ads",
+    "design": "Design",
+    "videoProcessing": "Video Processing",
+    "contentMarketing": "Content Marketing",
+    "prepress": "Prepress",
+    "seo": "SEO Optimization"
+  },
+  "home": {
+    "hero": {
+      "title": "Digital Solutions for Your Business",
+      "subtitle": "Professional web services and digital marketing for small businesses and startups",
+      "cta": "Request Project"
+    },
+    "about": {
+      "title": "About Infinity Creative",
+      "description": "A digital agency focused on fast execution and quality results for small businesses"
+    },
+    "beforeAfter": {
+      "title": "Transformations We Achieve"
+    },
+    "specialOffer": {
+      "title": "Special Offer: Digital Start",
+      "description": "A package of services specially created for startups",
+      "price": "249 BGN one-time",
+      "cta": "Learn More"
+    },
+    "services": {
+      "title": "Our Services"
+    },
+    "testimonials": {
+      "title": "Client Testimonials"
+    },
+    "portfolio": {
+      "title": "Recent Projects",
+      "cta": "View All Projects"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us"
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Contact us for a free consultation",
+      "primaryCta": "Request Project",
+      "secondaryCta": "Contact"
+    }
+  },
+  "specialOffer": {
+    "hero": {
+      "title": "Digital Start",
+      "subtitle": "Special offer for startups",
+      "price": "249 BGN one-time"
+    },
+    "details": {
+      "title": "What's Included in the Package?",
+      "website": {
+        "title": "Website Development - Online Business Card",
+        "features": [
+          "One page",
+          "Mobile responsiveness",
+          "1 language version",
+          "Submenus option",
+          "Photo gallery up to 20 images",
+          "1 contact form",
+          "Google Map",
+          "Facebook integration"
+        ]
+      },
+      "facebook": {
+        "title": "Facebook Business Page Creation",
+        "features": [
+          "Professional page setup",
+          "Visual elements optimization (cover, profile picture, description)",
+          "First month strategy (content ideas)"
+        ]
+      },
+      "seo": {
+        "title": "Basic SEO Optimization",
+        "description": "Website optimization for better search engine ranking"
+      }
+    },
+    "additionalServices": {
+      "title": "Additional Services",
+      "subtitle": "Not included in the base price",
+      "logo": {
+        "title": "Logo Design",
+        "price": "100 BGN"
+      },
+      "copywriting": {
+        "title": "Copywriting",
+        "price": "100 BGN"
+      },
+      "secondLanguage": {
+        "title": "Second Language Version",
+        "price": "Negotiable"
+      },
+      "photoEditing": {
+        "title": "Photo Editing",
+        "options": [
+          "10 photos - 100 BGN",
+          "20 photos - 190 BGN",
+          "30 photos - 280 BGN",
+          "For more photos - price by negotiation"
+        ]
+      }
+    },
+    "bonuses": {
+      "title": "Bonuses",
+      "instagram": {
+        "title": "Instagram Profile Creation"
+      },
+      "connection": {
+        "title": "Connecting Instagram with Facebook Page"
+      },
+      "posts": {
+        "title": "Preparation of First 4 Posts",
+        "description": "For Facebook and Instagram"
+      }
+    },
+    "orderForm": {
+      "title": "Order \"Digital Start\" Package"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
+    },
+    "cta": {
+      "title": "Have Questions?",
+      "description": "Contact us for a free consultation",
+      "primaryCta": "Contact",
+      "secondaryCta": "Viber Chat"
+    }
+  },
+  "footer": {
+    "services": "Services",
+    "company": "Company",
+    "contacts": "Contacts",
+    "subscribe": {
+      "title": "Subscribe",
+      "description": "Receive our news and special offers",
+      "placeholder": "Your email",
+      "button": "Subscribe"
+    },
+    "copyright": "© 2025 Infinity Creative. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookies"
+  },
+  "viber": {
+    "tooltip": "Contact us via Viber"
+  },
+  "forms": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "invalidUrl": "Please enter a valid URL",
+    "success": "Form submitted successfully! We will contact you soon.",
+    "submit": "Submit",
+    "contactPerson": "Contact Person",
+    "email": "Email",
+    "phone": "Phone",
+    "serviceType": "Service Type",
+    "budget": "Project Budget",
+    "competitors": "Link to Competitors",
+    "projectDescription": "Detailed Project Description",
+    "privacyConsent": "I agree with the privacy policy",
+    "selectService": "Select service",
+    "selectBudget": "Select budget",
+    "budgetOptions": {
+      "upTo500": "up to 500 BGN",
+      "500to1000": "500 - 1000 BGN",
+      "1000to2000": "1000 - 2000 BGN",
+      "over2000": "over 2000 BGN"
+    }
+  }
+}

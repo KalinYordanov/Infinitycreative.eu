@@ -1,0 +1,411 @@
+/* Animations CSS */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.5s ease forwards;
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.5s ease forwards;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+/* Bounce */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Pulse */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Shake */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.shake {
+    animation: shake 0.8s ease-in-out;
+}
+
+/* Rotate */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+/* Typing Effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--accent-color);
+    }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--accent-color);
+    animation:
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+/* Typing Cursor Effect */
+.typing-cursor {
+    border-right: 3px solid var(--accent-color);
+    animation: blink-caret 0.75s step-end infinite;
+    white-space: pre-wrap; /* Позволява преминаване на нов ред */
+    display: inline-block;
+    position: relative;
+}
+
+/* Typing Container for Paragraphs */
+.typing-container {
+    display: inline-block;
+    min-height: 1.5em; /* Минимална височина за контейнера */
+}
+
+/* Hero Typing Effect */
+#typing-text {
+    min-width: 10ch; /* Минимална ширина за контейнера */
+    display: inline-block;
+    position: relative;
+    padding-right: 0.1em; /* Малко пространство за курсора */
+}
+
+/* Специален ефект за курсора в Hero секцията */
+#typing-text.typing-cursor::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--accent-color);
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Typing Effect for Lists */
+.typing-list li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.typing-list li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hover Effects */
+
+/* Grow */
+.hover-grow {
+    transition: transform var(--transition-normal);
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+/* Shrink */
+.hover-shrink {
+    transition: transform var(--transition-normal);
+}
+
+.hover-shrink:hover {
+    transform: scale(0.95);
+}
+
+/* Float */
+.hover-float {
+    transition: transform var(--transition-normal);
+}
+
+.hover-float:hover {
+    transform: translateY(-8px);
+}
+
+/* Glow */
+.hover-glow {
+    transition: box-shadow var(--transition-normal);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Underline */
+.hover-underline {
+    position: relative;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width var(--transition-normal);
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Color Change */
+.hover-color-change {
+    transition: color var(--transition-normal);
+}
+
+.hover-color-change:hover {
+    color: var(--accent-color);
+}
+
+/* Background Change */
+.hover-bg-change {
+    transition: background-color var(--transition-normal);
+}
+
+.hover-bg-change:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+                transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.1),
+                filter 0.8s ease;
+    will-change: opacity, transform;
+    filter: blur(5px);
+}
+
+.animate-on-scroll.from-bottom {
+    transform: translateY(60px);
+}
+
+.animate-on-scroll.from-top {
+    transform: translateY(-60px);
+}
+
+.animate-on-scroll.from-left {
+    transform: translateX(-60px);
+}
+
+.animate-on-scroll.from-right {
+    transform: translateX(60px);
+}
+
+.animate-on-scroll.scale-up {
+    transform: scale(0.8);
+}
+
+.animate-on-scroll.scale-down {
+    transform: scale(1.2);
+}
+
+.animate-on-scroll.rotate-left {
+    transform: rotate(-10deg);
+}
+
+.animate-on-scroll.rotate-right {
+    transform: rotate(10deg);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translate(0) scale(1) rotate(0);
+    filter: blur(0);
+}
+
+/* Добавяме специални ефекти за различни типове елементи */
+.card.animate-on-scroll.visible {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 1s ease, filter 0.8s ease;
+}
+
+.card.animate-on-scroll.visible:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Специални ефекти за статистики */
+.stats.animate-on-scroll.visible .stat {
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stats.animate-on-scroll.visible .stat-value {
+    animation: stat-value-appear 1.2s forwards;
+}
+
+@keyframes stat-value-appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Специални ефекти за заглавия в секциите */
+h2.text-4xl.font-bold {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Стилове за елементи с приключила анимация */
+.animate-on-scroll.animation-completed {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Деактивиран паралакс ефект */
+.parallax {
+    transform: none !important;
+    transition: none !important;
+}
+

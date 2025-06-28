@@ -1,0 +1,142 @@
+/* Стилове за компонента Call to Action секция */
+
+.cta-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Варианти на CTA секцията */
+.cta-section.light {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+.cta-section.light::before {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cta-section.light .cta-title {
+    color: var(--primary-color);
+}
+
+.cta-section.accent {
+    background-color: var(--accent-color);
+}
+
+.cta-section.secondary {
+    background-color: var(--secondary-color);
+}
+
+.cta-section.gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.cta-section.image-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cta-section.image-bg::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cta-section.compact {
+    padding: var(--spacing-lg) 0;
+}
+
+.cta-section.compact .cta-title {
+    font-size: 1.75rem;
+}
+
+.cta-section.compact .cta-description {
+    font-size: 1rem;
+}
+
+/* Медия заявки */
+@media (max-width: 991px) {
+    .cta-title {
+        font-size: 1.75rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .cta-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-title {
+        font-size: 1.25rem;
+    }
+    
+    .cta-description {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,199 @@
+<!-- Компонент превключвател на езика -->
+<div class="language-switcher">
+    <button class="language-current">
+        <span class="language-flag"></span>
+        <span class="language-code"></span>
+
+    </button>
+
+    <div class="language-dropdown">
+        <ul class="language-list"></ul>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initLanguageSwitcher(element, options) {
+        // Настройване на текущия език
+        const currentFlag = element.querySelector('.language-flag');
+        const currentCode = element.querySelector('.language-code');
+
+        // Намиране на текущия език
+        const currentLanguage = options.languages.find(lang => lang.code === options.currentLanguage) || options.languages[0];
+
+        currentFlag.innerHTML = currentLanguage.flag || '';
+        currentCode.textContent = currentLanguage.code.toUpperCase();
+
+        // Настройване на списъка с езици
+        const languageList = element.querySelector('.language-list');
+
+        options.languages.forEach(language => {
+            const languageItem = document.createElement('li');
+            languageItem.className = 'language-item';
+
+            if (language.code === currentLanguage.code) {
+                languageItem.classList.add('active');
+            }
+
+            languageItem.innerHTML = `
+                <a href="${language.url || '#'}" class="language-link" data-language="${language.code}">
+                    <span class="language-flag">${language.flag || ''}</span>
+                    <span class="language-name">${language.name}</span>
+                </a>
+            `;
+
+            languageList.appendChild(languageItem);
+
+            // Добавяне на слушател за събития
+            const languageLink = languageItem.querySelector('.language-link');
+            languageLink.addEventListener('click', function(e) {
+                if (language.code === currentLanguage.code) {
+                    e.preventDefault();
+                    return;
+                }
+
+                if (options.onChange) {
+                    options.onChange(language.code);
+                }
+
+                // Ако URL-ът е #, предотвратяваме действието по подразбиране
+                if (language.url === '#') {
+                    e.preventDefault();
+
+                    // Запазване на избрания език в бисквитки
+                    document.cookie = `language=${language.code}; path=/; max-age=31536000`;
+
+                    // Презареждане на страницата, ако е необходимо
+                    if (options.reloadOnChange) {
+                        window.location.reload();
+                    }
+                }
+            });
+        });
+
+        // Добавяне на слушател за отваряне/затваряне на падащото меню
+        const currentButton = element.querySelector('.language-current');
+
+        currentButton.addEventListener('click', function() {
+            element.classList.toggle('open');
+        });
+
+        // Затваряне на падащото меню при клик извън него
+        document.addEventListener('click', function(e) {
+            if (!element.contains(e.target)) {
+                element.classList.remove('open');
+            }
+        });
+    }
+
+    // Функция за създаване на превключвател на езика с данни от data атрибути
+    function createLanguageSwitcherFromData(container) {
+        try {
+            // Опит за извличане на данните от data атрибута
+            const options = JSON.parse(container.dataset.options || '{}');
+
+            // Проверка за задължителни опции
+            if (!options.languages || !Array.isArray(options.languages) || options.languages.length === 0) {
+                console.error('Липсват езици за превключвателя на езика');
+                return;
+            }
+
+            // Определяне на текущия език
+            let currentLanguage = options.currentLanguage;
+
+            if (!currentLanguage) {
+                // Опит за извличане на езика от бисквитки
+                const cookies = document.cookie.split(';');
+                const languageCookie = cookies.find(cookie => cookie.trim().startsWith('language='));
+
+                if (languageCookie) {
+                    currentLanguage = languageCookie.split('=')[1].trim();
+                } else {
+                    // Използване на езика на браузъра
+                    const browserLanguage = navigator.language.split('-')[0];
+
+                    // Проверка дали езикът на браузъра е поддържан
+                    if (options.languages.some(lang => lang.code === browserLanguage)) {
+                        currentLanguage = browserLanguage;
+                    } else {
+                        // Използване на първия език от списъка
+                        currentLanguage = options.languages[0].code;
+                    }
+                }
+            }
+
+            // Създаване на превключвател на езика
+            const languageSwitcher = document.createElement('div');
+            languageSwitcher.className = 'language-switcher';
+
+            // Намиране на текущия език
+            const currentLanguageObj = options.languages.find(lang => lang.code === currentLanguage) || options.languages[0];
+
+            // Добавяне на HTML структурата
+            languageSwitcher.innerHTML = `
+                <button class="language-current">
+                    <span class="language-flag">${currentLanguageObj.flag || ''}</span>
+                    <span class="language-code">${currentLanguageObj.code.toUpperCase()}</span>
+                    <span class="language-arrow">▼</span>
+                </button>
+
+                <div class="language-dropdown">
+                    <ul class="language-list">
+                        ${options.languages.map(language => `
+                        <li class="language-item${language.code === currentLanguage ? ' active' : ''}">
+                            <a href="${language.url || '#'}" class="language-link" data-language="${language.code}">
+                                <span class="language-flag">${language.flag || ''}</span>
+                                <span class="language-name">${language.name}</span>
+                            </a>
+                        </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+
+            // Заместване на контейнера с превключвателя на езика
+            container.parentNode.replaceChild(languageSwitcher, container);
+
+            // Добавяне на слушатели за събития
+            const currentButton = languageSwitcher.querySelector('.language-current');
+            const languageLinks = languageSwitcher.querySelectorAll('.language-link');
+
+            currentButton.addEventListener('click', function() {
+                languageSwitcher.classList.toggle('open');
+            });
+
+            languageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const languageCode = this.dataset.language;
+
+                    if (languageCode === currentLanguage) {
+                        e.preventDefault();
+                        return;
+                    }
+
+                    // Ако URL-ът е #, предотвратяваме действието по подразбиране
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+
+                        // Запазване на избрания език в бисквитки
+                        document.cookie = `language=${languageCode}; path=/; max-age=31536000`;
+
+                        // Презареждане на страницата, ако е необходимо
+                        if (options.reloadOnChange !== false) {
+                            window.location.reload();
+                        }
+                    }
+                });
+            });
+
+            // Затваряне на падащото меню при клик извън него
+            document.addEventListener('click', function(e) {
+                if (!languageSwitcher.contains(e.target)) {
+                    languageSwitcher.classList.remove('open');
+                }
+            });
+        } catch (error) {
+            console.error('Грешка при инициализиране на превключвател на езика:', error);
+        }
+    }
+</script>

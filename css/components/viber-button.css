@@ -1,0 +1,123 @@
+/* Viber Button Styles */
+
+.viber-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #7D3DAF; /* Viber purple */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: all var(--transition-normal);
+}
+
+.viber-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.viber-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viber-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.viber-tooltip {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-sm);
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.viber-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--dark-gray);
+}
+
+.viber-button:hover .viber-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.viber-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+/* Pulse Animation */
+@keyframes viber-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(125, 61, 175, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(125, 61, 175, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(125, 61, 175, 0);
+    }
+}
+
+.viber-button.pulse {
+    animation: viber-pulse 2s infinite;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .viber-button {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .viber-icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .viber-tooltip {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .viber-button {
+        width: 45px;
+        height: 45px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .viber-icon {
+        width: 22px;
+        height: 22px;
+    }
+}

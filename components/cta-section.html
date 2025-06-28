@@ -1,0 +1,132 @@
+<!-- Компонент Call to Action секция -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title"></h2>
+            <p class="cta-description"></p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary cta-primary-btn"></a>
+                <a href="#" class="btn btn-secondary cta-secondary-btn"></a>
+            </div>
+            
+            <p class="cta-note"></p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initCtaSection(element, options) {
+        // Настройване на заглавието
+        const title = element.querySelector('.cta-title');
+        title.textContent = options.title || 'Готови ли сте да започнем?';
+        
+        // Настройване на описанието
+        const description = element.querySelector('.cta-description');
+        if (options.description) {
+            description.textContent = options.description;
+        } else {
+            description.style.display = 'none';
+        }
+        
+        // Настройване на бутоните
+        const primaryBtn = element.querySelector('.cta-primary-btn');
+        const secondaryBtn = element.querySelector('.cta-secondary-btn');
+        
+        if (options.primaryButton) {
+            primaryBtn.textContent = options.primaryButton.text || 'Заяви проект';
+            primaryBtn.href = options.primaryButton.url || '../request-project.html';
+            
+            if (options.primaryButton.className) {
+                primaryBtn.className = options.primaryButton.className;
+            }
+        } else {
+            primaryBtn.style.display = 'none';
+        }
+        
+        if (options.secondaryButton) {
+            secondaryBtn.textContent = options.secondaryButton.text || 'Свържи се с нас';
+            secondaryBtn.href = options.secondaryButton.url || '../contact.html';
+            
+            if (options.secondaryButton.className) {
+                secondaryBtn.className = options.secondaryButton.className;
+            }
+        } else {
+            secondaryBtn.style.display = 'none';
+        }
+        
+        // Настройване на бележката
+        const note = element.querySelector('.cta-note');
+        if (options.note) {
+            note.textContent = options.note;
+        } else {
+            note.style.display = 'none';
+        }
+        
+        // Настройване на фона
+        if (options.backgroundColor) {
+            element.style.backgroundColor = options.backgroundColor;
+        }
+        
+        if (options.backgroundImage) {
+            element.style.backgroundImage = `url(${options.backgroundImage})`;
+        }
+        
+        // Настройване на допълнителни класове
+        if (options.className) {
+            element.classList.add(options.className);
+        }
+    }
+    
+    // Функция за създаване на CTA секция с данни от data атрибути
+    function createCtaFromData(container) {
+        try {
+            // Опит за извличане на данните от data атрибута
+            const options = JSON.parse(container.dataset.options || '{}');
+            
+            // Създаване на CTA секция
+            const ctaSection = document.createElement('section');
+            ctaSection.className = 'cta-section';
+            
+            if (options.className) {
+                ctaSection.classList.add(options.className);
+            }
+            
+            if (options.backgroundColor) {
+                ctaSection.style.backgroundColor = options.backgroundColor;
+            }
+            
+            if (options.backgroundImage) {
+                ctaSection.style.backgroundImage = `url(${options.backgroundImage})`;
+            }
+            
+            // Добавяне на HTML структурата
+            ctaSection.innerHTML = `
+                <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">${options.title || 'Готови ли сте да започнем?'}</h2>
+                        ${options.description ? `<p class="cta-description">${options.description}</p>` : ''}
+                        
+                        <div class="cta-buttons">
+                            ${options.primaryButton ? `
+                            <a href="${options.primaryButton.url || '../request-project.html'}" class="${options.primaryButton.className || 'btn btn-primary'}">${options.primaryButton.text || 'Заяви проект'}</a>
+                            ` : ''}
+                            
+                            ${options.secondaryButton ? `
+                            <a href="${options.secondaryButton.url || '../contact.html'}" class="${options.secondaryButton.className || 'btn btn-secondary'}">${options.secondaryButton.text || 'Свържи се с нас'}</a>
+                            ` : ''}
+                        </div>
+                        
+                        ${options.note ? `<p class="cta-note">${options.note}</p>` : ''}
+                    </div>
+                </div>
+            `;
+            
+            // Заместване на контейнера с CTA секцията
+            container.parentNode.replaceChild(ctaSection, container);
+        } catch (error) {
+            console.error('Грешка при инициализиране на CTA секция:', error);
+        }
+    }
+</script>

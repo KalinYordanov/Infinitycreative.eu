@@ -1,0 +1,161 @@
+<!-- Компонент "преди и след" -->
+<div class="before-after-component">
+    <div class="before-after-container">
+        <div class="before-image">
+            <img src="" alt="Преди" class="before-img">
+            <div class="before-label">Преди</div>
+        </div>
+        <div class="after-image">
+            <img src="" alt="След" class="after-img">
+            <div class="after-label">След</div>
+        </div>
+        <div class="slider-handle">
+            <div class="slider-circle">
+                <div class="slider-arrow-left"></div>
+                <div class="slider-arrow-right"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="transformation-details">
+        <div class="problem-description">
+            <h3>Проблемът</h3>
+            <p class="problem-text"></p>
+        </div>
+        
+        <div class="solution-description">
+            <h3>Решението</h3>
+            <p class="solution-text"></p>
+        </div>
+    </div>
+    
+    <div class="metrics-container">
+        <div class="metrics-title">Постигнати резултати</div>
+        <div class="metrics-grid"></div>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initBeforeAfterComponent(element, options) {
+        // Настройване на изображенията
+        const beforeImg = element.querySelector('.before-img');
+        const afterImg = element.querySelector('.after-img');
+        beforeImg.src = options.beforeImage;
+        afterImg.src = options.afterImage;
+        
+        // Настройване на текстовете
+        const problemText = element.querySelector('.problem-text');
+        const solutionText = element.querySelector('.solution-text');
+        problemText.textContent = options.problemDescription;
+        solutionText.textContent = options.solutionDescription;
+        
+        // Настройване на метриките
+        const metricsGrid = element.querySelector('.metrics-grid');
+        if (options.metrics && options.metrics.length > 0) {
+            options.metrics.forEach(metric => {
+                const metricItem = document.createElement('div');
+                metricItem.className = 'metric-item';
+                
+                const metricValue = document.createElement('div');
+                metricValue.className = 'metric-value';
+                metricValue.textContent = metric.value;
+                
+                const metricLabel = document.createElement('div');
+                metricLabel.className = 'metric-label';
+                metricLabel.textContent = metric.label;
+                
+                metricItem.appendChild(metricValue);
+                metricItem.appendChild(metricLabel);
+                metricsGrid.appendChild(metricItem);
+            });
+        } else {
+            element.querySelector('.metrics-container').style.display = 'none';
+        }
+        
+        // Инициализиране на слайдера
+        initSlider(element);
+    }
+    
+    // Функция за инициализиране на слайдера
+    function initSlider(element) {
+        const container = element.querySelector('.before-after-container');
+        const sliderHandle = element.querySelector('.slider-handle');
+        const beforeImage = element.querySelector('.before-image');
+        
+        // Начална позиция на слайдера (50%)
+        let sliderPosition = 50;
+        updateSliderPosition(sliderPosition);
+        
+        // Функция за актуализиране на позицията на слайдера
+        function updateSliderPosition(position) {
+            sliderPosition = position;
+            sliderHandle.style.left = `${position}%`;
+            beforeImage.style.width = `${position}%`;
+        }
+        
+        // Функция за обработка на движението на мишката
+        function handleMouseMove(e) {
+            if (!isDragging) return;
+            
+            const rect = container.getBoundingClientRect();
+            let position = ((e.clientX - rect.left) / rect.width) * 100;
+            
+            // Ограничаване на позицията между 0% и 100%
+            position = Math.max(0, Math.min(100, position));
+            
+            updateSliderPosition(position);
+        }
+        
+        // Функция за обработка на докосване
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            
+            const rect = container.getBoundingClientRect();
+            const touch = e.touches[0];
+            let position = ((touch.clientX - rect.left) / rect.width) * 100;
+            
+            // Ограничаване на позицията между 0% и 100%
+            position = Math.max(0, Math.min(100, position));
+            
+            updateSliderPosition(position);
+            
+            // Предотвратяване на скролиране при плъзгане
+            e.preventDefault();
+        }
+        
+        // Променлива за проследяване на състоянието на плъзгане
+        let isDragging = false;
+        
+        // Добавяне на слушатели за събития
+        sliderHandle.addEventListener('mousedown', () => {
+            isDragging = true;
+        });
+        
+        sliderHandle.addEventListener('touchstart', () => {
+            isDragging = true;
+        });
+        
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        container.addEventListener('mousemove', handleMouseMove);
+        container.addEventListener('touchmove', handleTouchMove, { passive: false });
+        
+        // Добавяне на слушател за клик върху контейнера
+        container.addEventListener('click', (e) => {
+            const rect = container.getBoundingClientRect();
+            let position = ((e.clientX - rect.left) / rect.width) * 100;
+            
+            // Ограничаване на позицията между 0% и 100%
+            position = Math.max(0, Math.min(100, position));
+            
+            updateSliderPosition(position);
+        });
+    }
+</script>

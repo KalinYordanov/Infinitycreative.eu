@@ -1,0 +1,140 @@
+<!-- Компонент за таблица с цени -->
+<div class="pricing-table">
+    <div class="pricing-table-header">
+        <h2 class="pricing-table-title"></h2>
+        <p class="pricing-table-description"></p>
+    </div>
+    
+    <div class="pricing-plans"></div>
+    
+    <div class="pricing-table-footer">
+        <p class="pricing-note"></p>
+        <div class="pricing-cta"></div>
+    </div>
+</div>
+
+<script>
+    // Функция за инициализиране на компонента
+    function initPricingTable(element, options) {
+        // Настройване на заглавието и описанието
+        const title = element.querySelector('.pricing-table-title');
+        const description = element.querySelector('.pricing-table-description');
+        
+        title.textContent = options.title || 'Нашите цени';
+        description.textContent = options.description || '';
+        
+        // Настройване на плановете
+        const plansContainer = element.querySelector('.pricing-plans');
+        
+        if (options.plans && options.plans.length > 0) {
+            options.plans.forEach(plan => {
+                const planElement = createPlanElement(plan);
+                plansContainer.appendChild(planElement);
+            });
+        }
+        
+        // Настройване на бележката и CTA
+        const note = element.querySelector('.pricing-note');
+        const cta = element.querySelector('.pricing-cta');
+        
+        if (options.note) {
+            note.textContent = options.note;
+        } else {
+            note.style.display = 'none';
+        }
+        
+        if (options.cta) {
+            if (typeof options.cta === 'string') {
+                cta.innerHTML = options.cta;
+            } else if (options.cta.text && options.cta.url) {
+                const ctaButton = document.createElement('a');
+                ctaButton.href = options.cta.url;
+                ctaButton.className = options.cta.className || 'btn btn-primary';
+                ctaButton.textContent = options.cta.text;
+                cta.appendChild(ctaButton);
+            }
+        } else {
+            cta.style.display = 'none';
+        }
+    }
+    
+    // Функция за създаване на елемент за план
+    function createPlanElement(plan) {
+        const planElement = document.createElement('div');
+        planElement.className = 'pricing-plan';
+        
+        if (plan.featured) {
+            planElement.classList.add('featured');
+        }
+        
+        // Създаване на значка, ако планът е препоръчан
+        if (plan.featured) {
+            const badge = document.createElement('div');
+            badge.className = 'pricing-badge';
+            badge.textContent = plan.badgeText || 'Най-популярен';
+            planElement.appendChild(badge);
+        }
+        
+        // Създаване на хедър на плана
+        const planHeader = document.createElement('div');
+        planHeader.className = 'pricing-header';
+        
+        const planTitle = document.createElement('h3');
+        planTitle.textContent = plan.title || '';
+        planHeader.appendChild(planTitle);
+        
+        const planPrice = document.createElement('div');
+        planPrice.className = 'price';
+        planPrice.textContent = plan.price || '';
+        planHeader.appendChild(planPrice);
+        
+        const planPeriod = document.createElement('div');
+        planPeriod.className = 'price-type';
+        planPeriod.textContent = plan.period || '';
+        planHeader.appendChild(planPeriod);
+        
+        planElement.appendChild(planHeader);
+        
+        // Създаване на списък с характеристики
+        const planFeatures = document.createElement('div');
+        planFeatures.className = 'pricing-features';
+        
+        if (plan.features && plan.features.length > 0) {
+            const featuresList = document.createElement('ul');
+            
+            plan.features.forEach(feature => {
+                const featureItem = document.createElement('li');
+                featureItem.textContent = feature;
+                featuresList.appendChild(featureItem);
+            });
+            
+            planFeatures.appendChild(featuresList);
+        }
+        
+        planElement.appendChild(planFeatures);
+        
+        // Създаване на допълнителен текст, ако има такъв
+        if (plan.subtext) {
+            const planSubtext = document.createElement('div');
+            planSubtext.className = 'pricing-subtext';
+            planSubtext.textContent = plan.subtext;
+            planElement.appendChild(planSubtext);
+        }
+        
+        // Създаване на футър с бутон
+        const planFooter = document.createElement('div');
+        planFooter.className = 'pricing-footer';
+        
+        if (plan.buttonText && plan.buttonUrl) {
+            const planButton = document.createElement('a');
+            planButton.href = plan.buttonUrl;
+            planButton.className = plan.buttonClass || 'btn btn-primary';
+            planButton.textContent = plan.buttonText;
+            planFooter.appendChild(planButton);
+        }
+        
+        planElement.appendChild(planFooter);
+        
+        return planElement;
+    }
+</script>

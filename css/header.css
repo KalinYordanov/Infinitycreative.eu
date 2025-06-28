@@ -1,0 +1,912 @@
+/* Header Styles */
+
+/* Декоративни елементи за фона */
+.bg-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--primary-color);
+    opacity: 0.3;
+    filter: blur(50px);
+}
+
+.bg-circle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+}
+
+.bg-circle:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    right: 10%;
+}
+
+.bg-circle:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    left: 30%;
+}
+
+/* ДЕСКТОП НАВИГАЦИЯ */
+.nav-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* По-тъмен фон с 30% непрозрачност */
+    backdrop-filter: blur(10px); /* Ефект на замъгляване */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 0; /* Премахваме хоризонталния padding, за да не влияе на центрирането */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-container.header-scrolled {
+    background-color: var(--base-200); /* Използваме base-200 от новата цветова палитра */
+    opacity: 0.9;
+    backdrop-filter: blur(15px); /* По-силен ефект на замъгляване при скролване */
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-content {
+    max-width: 1500px; /* Увеличаваме още максималната ширина за по-големите елементи */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Предотвратява пренасяне на нов ред */
+    padding: 0 20px; /* Увеличаваме странично отстояние */
+}
+
+.logo-container {
+    flex: 0 0 auto;
+    margin-right: 10px; /* Намаляваме отстоянието */
+    position: relative;
+    flex-shrink: 0; /* Предотвратява свиването */
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-infinity {
+    font-size: 1.8rem; /* Променяме размера на символа за безкрайност на 1.8rem според предпочитанията */
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.logo-text {
+    margin-left: 0.3rem; /* Намаляваме отстоянието */
+    font-size: 1.4rem; /* Запазваме размера на шрифта на 1.4rem според предпочитанията */
+    font-weight: bold;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap; /* Предотвратява пренасяне на нов ред */
+}
+
+.menu-container {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    background-color: var(--base-200); /* Използваме base-200 от новата цветова палитра */
+    opacity: 0.8;
+    border-radius: 40px;
+    padding: 8px 15px; /* Увеличаваме padding-а за повече пространство */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* По-фина граница */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* По-силна сянка */
+    max-width: 720px; /* Запазваме максималната ширина на 720px според предпочитанията */
+    width: 100%;
+    backdrop-filter: blur(10px); /* Запазваме blur ефекта */
+    -webkit-backdrop-filter: blur(10px);
+    margin: 0 15px; /* Увеличаваме странично отстояние */
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    gap: 3px; /* Увеличаваме разстоянието между елементите за по-добър вид с по-големия шрифт */
+    width: 100%;
+    justify-content: center; /* Центрираме елементите вместо равномерно разпределение */
+    padding: 0; /* Премахваме padding-а, за да не изместват елементите */
+    margin: 0; /* Премахваме margin-а, за да не изместват елементите */
+}
+
+.menu-item {
+    position: relative;
+    white-space: nowrap; /* Предотвратява пренасяне на нов ред */
+}
+
+.menu-link {
+    display: block;
+    padding: 10px 8px; /* Намаляваме още padding-а отстрани, за да се побират всички елементи */
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    font-weight: 600; /* Увеличаваме дебелината на шрифта за по-добра четимост */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem; /* Увеличаваме размера на шрифта */
+    letter-spacing: 0.2px; /* Намаляваме разстоянието между буквите */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Добавяме сянка на текста за по-добра четимост */
+}
+
+.menu-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover:before {
+    width: 100%;
+    transform: translateX(0);
+}
+
+.menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(0.95);
+}
+
+.menu-link.active {
+    background-color: var(--primary-color); /* Използваме primary-color от новата цветова палитра */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Добавяме сянка за активния елемент */
+    font-weight: 700; /* По-дебел шрифт за активния елемент */
+}
+
+/* Различни цветове за различните секции, използвайки бранд палитрата */
+.menu-link.active.дигитален-старт {
+    background-color: var(--secondary-color); /* Използваме secondary-color от новата цветова палитра */
+}
+
+.menu-link.active.услуги {
+    background-color: var(--accent-color); /* Използваме accent-color от новата цветова палитра */
+}
+
+.menu-link.active.портфолио {
+    background-color: var(--info); /* Използваме info от новата цветова палитра */
+}
+
+.menu-link.active.отзиви {
+    background-color: var(--success); /* Използваме success от новата цветова палитра */
+}
+
+.menu-link.active.контакти {
+    background-color: var(--primary-color); /* Използваме primary-color от новата цветова палитра */
+}
+
+/* Анимация при клик */
+.menu-link:active {
+    transform: scale(0.9);
+}
+
+.menu-link:active:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(-50%, -50%) scale(8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(12);
+        opacity: 0;
+    }
+}
+
+/* Езиков превключвател */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Предотвратява свиването */
+}
+
+.lang-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 10px; /* Намаляваме padding-а */
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.8rem; /* Намаляваме размера на шрифта */
+    transition: all 0.3s ease;
+    margin: 0 3px; /* Намаляваме отстоянието между бутоните */
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+}
+
+.lang-button.active {
+    background-color: var(--accent-color); /* Използваме accent-color от новата цветова палитра */
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.lang-button:active:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+/* CTA бутон */
+.cta-container {
+    margin-left: 5px;
+    flex-shrink: 0; /* Предотвратява свиването */
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    color: white;
+    padding: 10px 18px; /* Увеличаваме padding-а за по-голям бутон */
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem; /* Увеличаваме размера на шрифта, за да съответства на менюто */
+    letter-spacing: 0.3px; /* Намаляваме разстоянието между буквите */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Предотвратява пренасяне на нов ред */
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.cta-button:hover:before {
+    opacity: 1;
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Хамбургер меню */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    position: relative;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+    justify-content: flex-end;
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: relative;
+}
+
+.language-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-btn .dropdown-arrow {
+    display: none;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-sm);
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+    z-index: 100;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.language-switcher:hover .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    transition: background-color var(--transition-fast);
+}
+
+.language-dropdown a:hover {
+    background-color: var(--light-gray);
+    color: var(--accent-color);
+}
+
+.language-dropdown a.active {
+    background-color: var(--light-gray);
+    font-weight: 600;
+}
+
+/* Header CTA Button */
+.header-cta {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    border-radius: 2rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header-cta:hover {
+    background-color: #e05a15; /* Darker orange */
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none !important; /* Скриваме бутона по подразбиране */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 2001; /* Над мобилното меню */
+    outline: none; /* Премахваме outline при фокус */
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .mobile-menu-toggle {
+        display: flex !important; /* Показваме бутона само на мобилни устройства */
+    }
+}
+
+.mobile-menu-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.mobile-menu-icon::before {
+    content: '\f0c9'; /* Hamburger icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-menu.active ~ .mobile-menu-toggle .mobile-menu-icon::before {
+    content: '\f00d'; /* X icon */
+    transform: rotate(0deg);
+}
+
+/* МОБИЛНО МЕНЮ */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--base-100); /* Използваме base-100 от новата цветова палитра */
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    justify-content: flex-start; /* Променяме на подравняване в началото */
+}
+
+.mobile-menu.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mobile-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.mobile-logo .logo-infinity {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.mobile-logo .logo-text {
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mobile-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-icon {
+    color: white;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.mobile-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    /* Премахваме flex: 1, за да не заема цялото пространство */
+}
+
+.mobile-menu-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-menu-link:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+    color: var(--accent-color);
+}
+
+.mobile-menu-link:hover:before {
+    width: 100%;
+}
+
+.mobile-menu-link.active {
+    color: var(--accent-color);
+}
+
+.mobile-menu-link.active:before {
+    width: 100%;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-weight: 600;
+}
+
+.mobile-dropdown-arrow {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    display: none;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-dropdown-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.mobile-dropdown-menu a {
+    padding: 0.5rem 0;
+    display: block;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.mobile-dropdown-menu a:hover {
+    color: var(--accent-color);
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Мобилен езиков превключвател */
+.mobile-lang-switcher {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.mobile-lang-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mobile-lang-button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 80px;
+    text-align: center;
+}
+
+.mobile-lang-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.mobile-lang-button.active {
+    background-color: var(--accent-color); /* Използваме accent-color от новата цветова палитра */
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-lang-button:active:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+/* Мобилен CTA бутон */
+.mobile-cta-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.mobile-cta {
+    display: block;
+    width: 100%;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-cta:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.mobile-cta:hover:before {
+    opacity: 1;
+}
+
+.mobile-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    .menu-container {
+        display: none;
+    }
+
+    .cta-container {
+        display: none;
+    }
+
+    /* Скриваме езиковия превключвател в горната част на мобилната версия */
+    .lang-switcher {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-content {
+        justify-content: space-between;
+    }
+
+    .nav-container {
+        padding: 10px 15px;
+    }
+
+    /* Показваме логото в мобилната навигация */
+    .logo-text {
+        display: block !important;
+    }
+}
+
+/* Специфични стилове за по-малки екрани */
+@media (max-width: 1200px) and (min-width: 992px) {
+    .menu-link {
+        padding: 8px 8px;
+        font-size: 0.7rem;
+        letter-spacing: 0.2px;
+    }
+
+    .lang-button {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+
+    .cta-button {
+        padding: 7px 12px;
+        font-size: 0.75rem;
+    }
+
+    .logo-infinity {
+        font-size: 1.4rem;
+    }
+
+    .logo-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-container {
+        padding: 12px 15px;
+    }
+
+    .logo-infinity {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .lang-button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .hamburger {
+        width: 25px;
+        height: 18px;
+    }
+
+    .mobile-menu {
+        padding: 15px;
+    }
+
+    .mobile-menu-link {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    .mobile-cta {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Премахваме скриването на логото в мобилната навигация */
+    .nav-content .logo-text {
+        display: block !important; /* Винаги показваме логото */
+        font-size: 0.8rem; /* Намаляваме размера */
+    }
+
+    .lang-switcher {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .mobile-menu-header {
+        margin-bottom: 15px;
+    }
+
+    .mobile-menu-link {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+}
